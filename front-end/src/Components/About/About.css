@@ -1,0 +1,44 @@
+
+.aboutText {
+    text-align: center;
+   
+}
+
+.aboutPerson img:nth-child(3){
+  height: 200px !important;
+}
+
+.aboutPerson  p {
+  margin-bottom: 5px;
+}
+
+.headingSection {
+  font-weight: bold;
+  font-weight: bold;
+  
+}
+.headingSection h2 {
+  width: 300px;
+  margin: 0 auto;
+  font-weight: bold;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  color: black;
+  border-bottom: 2px solid rgb(27, 27, 27);
+}
+.aboutTitle {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0px;
+    color:  rgb(8, 8, 8);
+    font-style: italic;
+    border-bottom: 2px solid rgb(15, 15, 15);
+    margin: 20px 0px !important;
+}
+.aboutText p {
+   text-align: justify !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  display: none;
+}

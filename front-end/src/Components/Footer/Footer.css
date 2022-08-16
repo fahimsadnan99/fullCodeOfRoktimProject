@@ -1,0 +1,83 @@
+.footerSection {
+        background-color: black !important;
+        color: rgb(221, 218, 218); 
+        text-transform: capitalize;   
+}
+.copyRight {
+       align-items: center;
+       text-align: center;
+       justify-content: center;
+       border-top:  1px  solid rgb(82, 81, 81);
+       border-bottom:  1px  solid rgb(82, 81, 81);
+      width: 100%;
+}
+
+.footerSection h5 {
+        color: blanchedalmond;
+        font-weight: bold;
+        font-size: 16px;
+}
+
+.footerSection p {
+        font-size: 14px;
+}
+/* .footerSection .socialLink {
+        font-size: 30px;
+        color: rgb(184, 174, 174);
+     
+        
+} */
+/* .footerSection .socialLink a {
+        text-decoration: none;
+}
+
+.footerSection .socialLink a:hover {
+        color: white;
+}
+
+.footerSection .socialLink i:nth-child(2){
+        font-size: 34px;
+}
+.footerSection .socialLink i {
+        margin-left: 10px;
+} */
+
+
+
+
+#apple,
+#twitter,
+#github,
+#facebook {
+  font-size: 1rem;
+  background-color: #18191f;
+  color: #fff;
+  box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080;
+  border-radius: 10px;
+  padding: 11px 19px;
+  margin: 0 10px;
+  animation: animate 2s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+}
+#twitter {
+  animation-delay: 0.3s;
+}
+#facebook {
+  animation-delay: 0.7s;
+}
+#github {
+  animation-delay: 0.1s;
+}
+
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

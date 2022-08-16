@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.NavbarWrapper {
+    background-color: rgb(236, 230, 230);
+   position: sticky;
+}
+.navWrap {
+    padding: 0px !important;
+}
+.NavbarWrapper .logo {
+    width: 70px;
+    height: 70px;
+}
+.logoTitle p {
+    margin: 0;
+}
+
+.logoTitle p:nth-last-child(2){
+    font-family: 'Kaushan Script', cursive;
+    font-size: 25px;
+   margin-left: 70px;
+}
+.logoTitle {
+    font-size: 20px;
+    font-weight: 600;
+      font-family: 'Pacifico', cursive;
+     font-family: 'Kaushan Script', cursive;
+     color: rgb(34, 12, 12);
+     font-size: 25px;
+     
+}
+.active_css {
+    background-color: rgba(36, 15, 15, 0.418);
+    color: black !important;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.6),
+    10px 10px 15px rgba(70,70,70,0.12);
+    border-radius: 10px;
+    background-color: white !important;
+   
+}
+.nav_Link {
+    margin-left: 5px;
+    padding: 10px 5px;
+    color: rgba(24, 24, 21, 0.938);
+    text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 600;
+}
+.nav_Link i {
+    margin-right: 3px;
+} 
+.nav_Link:hover {
+    color: black !important;
+    background-color: rgb(213, 213, 245);
+    border-radius: 10px;
+}
+
+.CartLink {
+    position: relative;
+}
+
+.cartCount {
+    background-color: red;
+    border-radius: 50%;
+    color : #fff;
+    font-size: 14px;
+    position: absolute;
+    padding: 5px;
+    top : -15px;
+    left : 80%;
+}
+
+@media(max-width : 976px){
+.active_css {
+    background-color: transparent;
+    color: blue !important;
+}
+}
+ 
+
+
+
+

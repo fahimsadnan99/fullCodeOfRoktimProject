@@ -1,0 +1,30 @@
+.cart_Card {
+    display: flex !important;
+    border: 1px solid rgba(0, 0, 0, 0.144);
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+    font-size: 20px;
+    justify-content: space-around;
+}
+
+.cart_Card  p, .cart_Card .cardIncre  {
+    text-align: center;
+    margin-top: 15px;
+}
+.cart_Card input {
+  padding-bottom: 3px;
+}
+.cart_Card  button {
+   padding: 0px;
+   width: 40px;
+   height: 35px;
+   margin-top: 15px;
+}
+.priceCard {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.priceCard button:hover {
+         background-color: green;
+       
+}

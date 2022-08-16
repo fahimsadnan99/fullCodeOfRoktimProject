@@ -1,0 +1,31 @@
+
+.input_field:focus {
+box-shadow: none !important;
+ } 
+
+.input_field {
+    padding : "10px";
+    border : 1px solid rgb(143, 138, 138) !important;
+    margin-top : "20px" !important
+}
+
+.signupText {
+    font-size: 40px;
+    letter-spacing: 3px;
+   
+}
+
+.signupText {
+    content: "";
+     border-bottom: 5px solid red;
+     width : 150px
+}
+
+.Signup_img {
+    width: 100%;
+}
+.lePeek span { animation: lePeek 2s ease-in-out; animation-iteration-count: infinite  }
+@keyframes lePeek {
+    25% {  transform: rotateX(30deg) translateY(10px) rotate(-13deg); }
+    50% { transform: translateY(-22px) rotate(3deg) scale(1.1);  }
+}
