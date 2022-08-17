@@ -18,6 +18,7 @@ const Cart = () => {
     transportFee: 0,
   });
 
+  const [deliveryCharge,setDeliveryCharge] = useState(0)
   const [divition,setDeviton] = useState("")
   const[showDiviton,setShowDiviton] = useState(false)
 
@@ -26,10 +27,12 @@ const Cart = () => {
   console.log( "item", ItemList.item)
   const weight = ()=>{
     let totalWeight = 0;
+    let quantity = 0;
     ItemList?.item?.map((item)=>{
       totalWeight += item.weight;
+      quantity += item.count;
     } )
-    return totalWeight;
+    return totalWeight * quantity;
   }
   const dispatch = useDispatch();
   const price = () => {
@@ -54,18 +57,23 @@ const Cart = () => {
     }else{
 
 
-if (e.target.value === "0")
-      setDeviton("")
-      setTransport({
-        transportSystem: "",
-        transportFee: 0,
-      });
+if (e.target.value === "0"){
+  setDeviton("")
+  setTransport({
+    transportSystem: "",
+    transportFee: 0,
+  });
+  setDeliveryCharge(0)
+
+}
+      
     if(e.target.value === "1000"){
       setDeviton(e.target.value)
       setTransport({
         transportSystem: "Dhaka",
         transportFee: 7000,
       })
+      setDeliveryCharge(7000)
     }
     else if(e.target.value === "500"){
       setDeviton(e.target.value)
@@ -73,6 +81,7 @@ if (e.target.value === "0")
         transportSystem: "Chittagong",
         transportFee: 5000,
       })
+      setDeliveryCharge(5000)
     }
     else if(e.target.value === "2500"){
       setDeviton(e.target.value)
@@ -80,6 +89,7 @@ if (e.target.value === "0")
         transportSystem: "Rajshahi",
         transportFee: 13000,
       })
+      setDeliveryCharge(13000)
     }
     else if(e.target.value === "3500"){
       setDeviton(e.target.value)
@@ -87,6 +97,7 @@ if (e.target.value === "0")
         transportSystem: "Sylhet",
         transportFee: 15000,
       })
+      setDeliveryCharge(15000)
     }
     else if(e.target.value === "3000"){
       setDeviton(e.target.value)
@@ -94,6 +105,7 @@ if (e.target.value === "0")
         transportSystem: "Rangpur",
         transportFee: 9000,
       })
+      setDeliveryCharge(9000)
     }
     else if(e.target.value === "1500"){
       setDeviton(e.target.value)
@@ -101,6 +113,7 @@ if (e.target.value === "0")
         transportSystem: "Barisal",
         transportFee: 8000,
       })
+      setDeliveryCharge(8000)
     }
     else if(e.target.value === "2000"){
       setDeviton(e.target.value)
@@ -108,17 +121,22 @@ if (e.target.value === "0")
         transportSystem: "Khulna",
         transportFee: 10000,
       })
+      setDeliveryCharge(10000)
     }
   }
  
   }
 
   const handleChageTransport = (e) => {
-    if (e.target.value === "0")
+    if (e.target.value === "0"){
+      setDeliveryCharge(0)
       setTransport({
         transportSystem: "",
         transportFee: 0,
       });
+    }
+      
+      
     if (e.target.value === "500"){
       setShowDiviton(false)
              if(weight() >= 20){
@@ -128,6 +146,8 @@ if (e.target.value === "0")
                  transportSystem: "SA poribahan",
                 transportFee: weight() *70,
               });
+
+              setDeliveryCharge(weight() *70)
              }
 
     }
@@ -144,6 +164,7 @@ if (e.target.value === "0")
         transportSystem: "Home Delivery",
         transportFee: weight() * 30,
       });
+      setDeliveryCharge(weight() * 30)
     }
     }
     
@@ -239,7 +260,8 @@ if (e.target.value === "0")
                 </div></> )}
 
 
-
+             
+                <h6>Delivery Charge : {deliveryCharge} Tk</h6>
 
                 <h5>Total Cost : {transport.transportFee + price().sum}</h5>
               </div>
