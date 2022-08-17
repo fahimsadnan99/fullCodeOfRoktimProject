@@ -58,10 +58,12 @@ const Card = ({ item }) => {
           <i class="material-icons">info_outline</i>
         </div>
         <div class="contents">
+        <h4 style={{borderBottom : "2px solid #669999",color : "white"}}> {item.name}</h4>
           <table>
+        
             <tr>
               
-              <h4>Price : {item.price} TK</h4>
+              <h5>Price : <span style={{color : "#CC9966"}}>{item.price} </span> TK</h5>
              
             </tr>
             <tr>
@@ -78,6 +80,14 @@ const Card = ({ item }) => {
               <th> ExpDate: </th>
               <th> {item.expireDate}</th>
             </tr>
+
+            
+            <tr>
+              <th> Weight : </th>
+              <th> {item.weight} kg</th>
+            </tr>
+
+
 
 
           </table>

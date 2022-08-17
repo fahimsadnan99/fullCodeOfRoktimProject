@@ -44,6 +44,8 @@ const SinglePage = () => {
                   <h4>{item.price} Tk</h4>
                   <h6>Menufecturing : {item.manufecture}</h6>
                   <h6>Expdate : {item.expireDate}</h6>
+                  <h6>Weight : {item.weight} Kg</h6>
+                  <h6>quantity : {item.quantity}</h6>
                   <p><i>{item.description}</i></p>
           <div style={{fontSize : "30px"}}>
                               <span><i className="fa fa-star" style={{color : "orange"}} aria-hidden="true"></i></span>
