@@ -24,7 +24,7 @@ console.log(product);
   
     return (
       <>
-{!product.length ? (        <Layout title="Apon Basic Need Food Ltd">
+{product.length ? (        <Layout title="Apon Basic Need Food Ltd">
           <Navbar></Navbar>
           <Slider></Slider>
 
