@@ -1,146 +1,186 @@
-import React,{useState} from 'react';
-import Cards from 'react-credit-cards';
-import 'react-credit-cards/es/styles-compiled.css';
-import Layout from "../Layout/Layout"
-import Navabar from "../Navbar/Navbar"
-import Footer from "../Footer/Footer"
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { successMsg } from "../../utils/message";
-import axios from "axios"
+// import React,{useState} from 'react';
+// import Cards from 'react-credit-cards';
+// import 'react-credit-cards/es/styles-compiled.css';
+// import Layout from "../Layout/Layout"
+// import Navabar from "../Navbar/Navbar"
+// import Footer from "../Footer/Footer"
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
+// import { successMsg } from "../../utils/message";
+// import axios from "axios"
 
-const  PaymentForm =()=> {
-    const dispatch = useDispatch()
-    const ItemList = useSelector((state) => state);
-   const  history = useHistory()
-    const [payment, setPayment] = useState({
-        cvc: '',
-        expiry: '',
-        focus: '',
-        name: '',
-        number: '',
-    })
+// const  PaymentForm =()=> {
+//     const dispatch = useDispatch()
+//     const ItemList = useSelector((state) => state);
+//    const  history = useHistory()
+//     const [payment, setPayment] = useState({
+//         cvc: '',
+//         expiry: '',
+//         focus: '',
+//         name: '',
+//         number: '',
+//     })
     
-    console.log(ItemList);
+//     console.log(ItemList);
 
-  const  handleInputFocus = (e) => {
-        setPayment({
-            ...payment,
-            focus: e.target.name });
-    }
+//   const  handleInputFocus = (e) => {
+//         setPayment({
+//             ...payment,
+//             focus: e.target.name });
+//     }
 
-   const handleInputChange = (e) => {
-        const { name, value } = e.target;
+//    const handleInputChange = (e) => {
+//         const { name, value } = e.target;
 
-        setPayment({
-            ...payment,
-            [name]: value
-        })
+//         setPayment({
+//             ...payment,
+//             [name]: value
+//         })
        
-    }
+//     }
 
-    const MsgSend = async (email) => {
-        await axios.post("http://localhost:3002/api/msg", { email: email })
-            .then(res => console.log(res))
-    }
+//     const MsgSend = async (email) => {
+//         await axios.post("http://localhost:3002/api/msg", { email: email })
+//             .then(res => console.log(res))
+//     }
 
-   const  HandleSubmit = () => {
+//    const  HandleSubmit = () => {
 
-    if(payment.number.length === 16 && payment.cvc.length === 3 && payment.expiry.length === 5){
+//     if(payment.number.length === 16 && payment.cvc.length === 3 && payment.expiry.length === 5){
 
-       MsgSend(ItemList.email)
+//        MsgSend(ItemList.email)
 
-        successMsg(true, "Product Perchanges Successful")
-        dispatch({ type: "REMOVE_ALL_ITEM" });
-       history.push("/user/deshbord")
-    }else{
-        if(payment.number.length !== 16){
-            window.alert("Please Enter Valid Card Number")
-        }else if(payment.cvc.length !== 3){
-            window.alert("Please Enter 3 Digit CVC")
-        }else if(payment.expiry.length !== 4){
-            window.alert("Please Enter 4 Digit Expiry")
-        }   else{
-            MsgSend(ItemList.email)
+//         successMsg(true, "Product Perchanges Successful")
+//         dispatch({ type: "REMOVE_ALL_ITEM" });
+//        history.push("/user/deshbord")
+//     }else{
+//         if(payment.number.length !== 16){
+//             window.alert("Please Enter Valid Card Number")
+//         }else if(payment.cvc.length !== 3){
+//             window.alert("Please Enter 3 Digit CVC")
+//         }else if(payment.expiry.length !== 4){
+//             window.alert("Please Enter 4 Digit Expiry")
+//         }   else{
+//             MsgSend(ItemList.email)
 
-            successMsg(true, "Product Perchanges Successful")
-            dispatch({ type: "REMOVE_ALL_ITEM" });
-           history.push("/user/deshbord")
-        }
+//             successMsg(true, "Product Perchanges Successful")
+//             dispatch({ type: "REMOVE_ALL_ITEM" });
+//            history.push("/user/deshbord")
+//         }
         
-    }
+//     }
 
-    };
+//     };
 
    
-        return (
-            <Layout title="Payment">
-                <Navabar></Navabar>
+//         return (
+//             <Layout title="Payment">
+//                 <Navabar></Navabar>
 
 
           
-            <div id="PaymentForm" className="my-5 text-center">
-                <Cards
-                        cvc={payment.cvc}
-                        expiry={payment.expiry}
-                        focused={payment.focus}
-                        name={payment.name}
-                        number={payment.number}
-                />
-                <div className="container">
-                    <div className="row">
+//             <div id="PaymentForm" className="my-5 text-center">
+//                 <Cards
+//                         cvc={payment.cvc}
+//                         expiry={payment.expiry}
+//                         focused={payment.focus}
+//                         name={payment.name}
+//                         number={payment.number}
+//                 />
+//                 <div className="container">
+//                     <div className="row">
 
-                        <div className="col-4 offset-4 my-3">
+//                         <div className="col-4 offset-4 my-3">
 
                      
-                <form>
-                    <input
-                        type="tel"
-                        name="number"
-                        placeholder="Card Number"
-                        onChange={(e) => handleInputChange(e)}
-                        onFocus={(e) => handleInputFocus(e)}
-                        className="form-control my-2"
-                    />
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Your Full Name"
-                                        onChange={(e) => handleInputChange(e)}
-                                        onFocus={(e) => handleInputFocus(e)}
-                                        className="form-control my-2"
-                        />
-                        <input
-                            type="number"
-                            name="expiry"
-                            placeholder="expiry"
-                                        onChange={(e) => handleInputChange(e)}
-                                        onFocus={(e) => handleInputFocus(e)}
-                                        className="form-control my-2"
-                        />
+//                 <form>
+//                     <input
+//                         type="tel"
+//                         name="number"
+//                         placeholder="Card Number"
+//                         onChange={(e) => handleInputChange(e)}
+//                         onFocus={(e) => handleInputFocus(e)}
+//                         className="form-control my-2"
+//                     />
+//                         <input
+//                             type="text"
+//                             name="name"
+//                             placeholder="Your Full Name"
+//                                         onChange={(e) => handleInputChange(e)}
+//                                         onFocus={(e) => handleInputFocus(e)}
+//                                         className="form-control my-2"
+//                         />
+//                         <input
+//                             type="number"
+//                             name="expiry"
+//                             placeholder="expiry"
+//                                         onChange={(e) => handleInputChange(e)}
+//                                         onFocus={(e) => handleInputFocus(e)}
+//                                         className="form-control my-2"
+//                         />
 
-                        <input
-                            type="number"
-                            name="cvc"
-                            placeholder="Cvc Number"
-                            onChange={(e) =>handleInputChange(e)}
-                                        onFocus={(e) => handleInputFocus(e)}
-                                        className="form-control my-2"
-                        />
+//                         <input
+//                             type="number"
+//                             name="cvc"
+//                             placeholder="Cvc Number"
+//                             onChange={(e) =>handleInputChange(e)}
+//                                         onFocus={(e) => handleInputFocus(e)}
+//                                         className="form-control my-2"
+//                         />
                    
-                                    <button  className="custom-btn btn-9" style={{fontWeight : "bold"}}
-                                    onClick={HandleSubmit}
-                                    >Payment</button>
-                </form>
-                </div>
-                        </div>
-                    </div>
-            </div>
-                <Footer></Footer>
-            </Layout>
-        );
+//                                     <button  className="custom-btn btn-9" style={{fontWeight : "bold"}}
+//                                     onClick={HandleSubmit}
+//                                     >Payment</button>
+//                 </form>
+//                 </div>
+//                         </div>
+//                     </div>
+//             </div>
+//                 <Footer></Footer>
+//             </Layout>
+//         );
    
+// }
+
+
+// export default PaymentForm
+
+
+
+
+import React from 'react'
+import Layout from "../Layout/Layout"
+import Navabar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
+import Nagad from "../../assets/img/Nagad.png"
+import Bkash from "../../assets/img/Bkash.svg"
+import Visa from "../../assets/img/Visa.jpg"
+import "./Payment.css"
+import { useHistory } from 'react-router-dom'
+
+const Payment = () => {
+  const history = useHistory()
+  return (
+    <Layout title="Payment">
+                <Navabar></Navabar>
+                <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+                <h2 className='text-center mt-4'>Select Payment Method</h2>
+    <div id='paymentImg'>
+    <div>
+    <img src={Bkash} alt="Bkash" onClick={() => history.push("/bkash")} />
+    </div>
+    <div>
+    <img src={Nagad} alt="Nagod" onClick={() => history.push("/nogod")}/>
+    </div>
+
+    <div>
+    <img src={Visa} alt="Visa" onClick={() => history.push("/card")}/>
+    </div>
+    
+    </div>
+    <Footer></Footer>
+                </Layout>
+  )
 }
 
-
-export default PaymentForm
+export default Payment

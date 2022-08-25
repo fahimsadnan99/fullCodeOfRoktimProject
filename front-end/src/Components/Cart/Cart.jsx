@@ -207,15 +207,17 @@ if (e.target.value === "0"){
   return (
     <Layout title="Cart Page">
       <Navbar></Navbar>
+      <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
       <div className="container">
         <h2
-          className="text-center my-5"
+          className="text-center mb-5 mt-2"
           style={{
             borderBottom: "2px solid black",
             width: "300px",
             margin: "0 auto",
             color: "black",
             fontWeight: "bold",
+            
           }}
         >
           Cart Item
@@ -261,7 +263,7 @@ if (e.target.value === "0"){
 
 
              
-                <h6>Delivery Charge : {deliveryCharge} Tk</h6>
+                <h6>Delivery Charge : {deliveryCharge * weight()} Tk</h6>
 
                 <h5>Total Cost : {transport.transportFee + price().sum}</h5>
               </div>

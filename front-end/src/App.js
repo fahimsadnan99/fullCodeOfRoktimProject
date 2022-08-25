@@ -16,6 +16,9 @@ import AdminRouter from "./Components/PrivateRoute/AdminRoute"
 import AdminDashbord from './Components/Admin/Dashbord'
 import SingleProduct from "./Components/SinglePage"
 import Payment from "./Components/PaymentCard/Payment"
+import Card from "./Components/Payment/Card"
+import Bkash from "./Components/Payment/Bkash"
+import Nogod from "./Components/Payment/Nogod"
 
 
 
@@ -71,6 +74,20 @@ const App = () => {
         <AdminRouter exact path="/admin/deshbord">
           <AdminDashbord></AdminDashbord>
         </AdminRouter>
+
+        <PrivateRoute exact path="/payment">
+          <Payment></Payment>
+        </PrivateRoute>
+        <PrivateRoute exact path="/card">
+        <Card></Card>
+      </PrivateRoute>
+      <PrivateRoute exact path="/bkash">
+      <Bkash></Bkash>
+    </PrivateRoute>
+
+    <PrivateRoute exact path="/nogod">
+ <Nogod></Nogod>
+  </PrivateRoute>
       </Switch>
       
     </>

@@ -58,6 +58,7 @@ const Address = () => {
   return (
     <Layout title="address">
       <Navbar></Navbar>
+      <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
       <div className="container text-center">
         <div className="row">
           <div className="my-5 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 formStyle">

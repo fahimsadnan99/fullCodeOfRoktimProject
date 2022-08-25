@@ -1,0 +1,27 @@
+#paymentImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 900px;
+    margin: 0 auto;
+    
+}
+
+#paymentImg div {
+    width: 250px;
+    box-shadow: 1px 2px 10px black;
+    border-radius: 10px;
+    margin : 100px 0px;
+    cursor: pointer;
+    
+}
+
+#paymentImg div img {
+    width: 150px;
+    height: 100px;
+}
+
+#paymentImg div img:last-child{
+    margin-left: 50px;
+}
