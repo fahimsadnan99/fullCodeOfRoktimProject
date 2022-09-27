@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../Layout/Layout";
 import Navbar from "../Navbar/Navbar";
 import "./Cart.css";
-import CartItem from "./CartItem";
+// import CartItem from "./CartItem";
 import {useHistory} from "react-router-dom"
 import { GetProfileData } from "../../API/AllApi";
 import Footer from '../Footer/Footer'
@@ -224,9 +224,64 @@ if (e.target.value === "0"){
         </h2>
         <div className="row">
           <div className="col-9">
-            { ItemList?.item.map((el) => {
-                return <CartItem el={el}></CartItem>;
-              })}
+           <table className="table">
+              <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
+              </tr>
+  
+  { ItemList?.item.map((el) => {
+    return (
+      <tr style={{fontSize : "17px"}}>
+        <td><img
+        src={el.photo}
+        alt="img"
+        className="img-fluid"
+        width={"70px"}
+      ></img></td>
+      <td>{el.name}</td>
+      <td>{el.price * el.count}</td>
+      <td>
+      <div>
+      <button className="btn"
+      onClick={() =>
+        dispatch({ type: "ITEM_DIC", value: el._id })
+      }
+    
+      >     <i class="fa fa-minus-square" aria-hidden="true"></i></button>
+ 
+      <span>{el.count}</span>
+      <button className="btn"
+      onClick={() =>
+        dispatch({ type: "ITEM_INC", value: el._id })
+      }
+      
+      
+      ><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+      
+      </div>   
+      
+      </td>
+      <td><button
+      className="btn btn-danger"
+      onClick={() =>
+        dispatch({
+          type: "DELETE",
+          value: el._id,
+        })
+      }
+    >
+      <i class="fa fa-trash"></i>
+    </button></td>
+      </tr>
+    )
+  })}
+
+             
+           </table>
           </div>
           <div className="col-3">
             <div className="text-center p-3 priceCard">
