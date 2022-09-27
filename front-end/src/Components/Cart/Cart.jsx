@@ -235,7 +235,7 @@ if (e.target.value === "0"){
   
   { ItemList?.item.map((el) => {
     return (
-      <tr style={{fontSize : "17px"}}>
+      <tr style={{fontSize : "18px"}}>
         <td><img
         src={el.photo}
         alt="img"
@@ -246,21 +246,23 @@ if (e.target.value === "0"){
       <td>{el.price * el.count}</td>
       <td>
       <div>
-      <button className="btn"
+      <button className="btn p-0"
       onClick={() =>
         dispatch({ type: "ITEM_DIC", value: el._id })
       }
     
-      >     <i class="fa fa-minus-square" aria-hidden="true"></i></button>
+      >     <i class="fa fa-minus-square text-danger"
+      style={{fontSize : "25px"}}
+      aria-hidden="true"></i></button>
  
-      <span>{el.count}</span>
-      <button className="btn"
+      <span style={{padding : "0px 10px"}}>{el.count}</span>
+      <button className="btn p-0"
       onClick={() =>
         dispatch({ type: "ITEM_INC", value: el._id })
       }
       
       
-      ><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+      ><i style={{fontSize : "25px"}} class="fa fa-plus-square text-success" aria-hidden="true"></i></button>
       
       </div>   
       

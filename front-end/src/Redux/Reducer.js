@@ -1,4 +1,4 @@
-import { ErrorMsg } from "../utils/message";
+import { ErrorMsg,successMsg } from "../utils/message";
 const myState = {
   item: [],
   transportSystem: "",
@@ -15,6 +15,7 @@ const ItemList = (state = myState, actions) => {
       let datas = state.item.findIndex(el => el._id === actions.value._id)
       console.log(datas)
       if (datas === -1) {
+      successMsg("success","Product Added successfully")
         return {
           ...state,
           item: [...state.item, actions.value],
