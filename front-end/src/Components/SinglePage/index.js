@@ -43,6 +43,7 @@ const SinglePage = () => {
                   <h2 style={{ color: "red" }}>{item.name}</h2>
                   <h4>{item.price} Tk</h4>
                   <h6>Menufecturing : {item.manufecture}</h6>
+                  <h6>Single Item : {item.price / 12} Tk</h6>
                   <h6>Expdate : {item.expireDate}</h6>
                   <h6>Weight : {item.weight} Kg</h6>
                   <h6>quantity : {item.quantity}</h6>
