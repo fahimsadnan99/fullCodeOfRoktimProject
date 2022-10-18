@@ -18,9 +18,11 @@ const Cart = () => {
     transportFee: 0,
   });
 
+  const [activeBtn,setActiveBtn] = useState(true);
   const [deliveryCharge,setDeliveryCharge] = useState(0)
   const [divition,setDeviton] = useState("")
   const[showDiviton,setShowDiviton] = useState(false)
+  const [saCount,setSaCount] = useState(0)
 
   const ItemList = useSelector((state) => state);
 
@@ -34,6 +36,19 @@ const Cart = () => {
     } )
     return totalWeight * quantity;
   }
+
+  const countProduct = ()=>{
+
+    let quantity = 0;
+
+    ItemList?.item?.map((item)=>{
+      quantity += item.count;
+      
+    } )
+    return  quantity;
+  }
+
+
   const dispatch = useDispatch();
   const price = () => {
     let sum = 0;
@@ -141,13 +156,13 @@ if (e.target.value === "0"){
       setShowDiviton(false)
              if(weight() >= 20){
               window.alert("SA poribohon Support Mximum 20KG")
-             }else{
+             }else {
               setTransport({
                  transportSystem: "SA poribahan",
-                transportFee: weight() *70,
+                transportFee: saCount *250,
               });
 
-              setDeliveryCharge(weight() *70)
+              setDeliveryCharge(saCount * 250)
              }
 
     }
@@ -162,9 +177,9 @@ if (e.target.value === "0"){
       
       setTransport({
         transportSystem: "Home Delivery",
-        transportFee: weight() * 30,
+        transportFee: saCount *250,
       });
-      setDeliveryCharge(weight() * 30)
+      setDeliveryCharge(saCount *250,)
     }
     }
     
@@ -182,6 +197,17 @@ if (e.target.value === "0"){
       
       
     }, []);
+
+
+    useEffect(()=>{
+    let  quantity = 0;
+      ItemList?.item?.map((item)=>{
+        quantity += item.count;
+        
+      } )
+      setSaCount(quantity)
+  
+    },[activeBtn])
   
   
   const checkOut = () => {
@@ -247,9 +273,11 @@ if (e.target.value === "0"){
       <td>
       <div>
       <button className="btn p-0"
-      onClick={() =>
+      onClick={() =>{
+        setActiveBtn(!activeBtn)
+      
         dispatch({ type: "ITEM_DIC", value: el._id })
-      }
+      }}
     
       >     <i class="fa fa-minus-square text-danger"
       style={{fontSize : "25px"}}
@@ -257,9 +285,12 @@ if (e.target.value === "0"){
  
       <span style={{padding : "0px 10px"}}>{el.count}</span>
       <button className="btn p-0"
-      onClick={() =>
+      onClick={() =>{
+
+        setActiveBtn(!activeBtn)
+      
         dispatch({ type: "ITEM_INC", value: el._id })
-      }
+      }}
       
       
       ><i style={{fontSize : "25px"}} class="fa fa-plus-square text-success" aria-hidden="true"></i></button>
@@ -320,7 +351,7 @@ if (e.target.value === "0"){
 
 
              
-                <h6>Delivery Charge : {deliveryCharge * weight()} Tk</h6>
+                <h6>Delivery Charge : {deliveryCharge } Tk</h6>
 
                 <h5>Total Cost : {transport.transportFee + price().sum}</h5>
               </div>
