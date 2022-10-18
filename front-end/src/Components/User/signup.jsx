@@ -52,7 +52,7 @@ const Signup = () => {
   return (
     <Layout title="Signin Page">
       <Navbar></Navbar>
-      <div className="my-5 container">
+      <div className="mb-5 container" style={{paddingTop : "100px"}}>
         <div className="row">
           <div className="col-lg-6  col-md-8  col-12 animate__flipInX">
             <div className=" signup_Wrapper p-3 mb-5">

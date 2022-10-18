@@ -26,7 +26,7 @@ const Gallery = () => {
     return (
       <Layout title="Gallery Page">
         <Navbar></Navbar>
-        <div className="container mt-5">
+        <div className="container" style={{paddingTop : "100px"}}>
           <nav class="nav nav-pills nav-fill">
             <a
               style={{ fontWeight: "bold" }}

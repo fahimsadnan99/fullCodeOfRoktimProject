@@ -24,7 +24,7 @@ const Bkash = () => {
     <Layout>
     <Navabar></Navabar>
 
-    <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+    <button style={{paddingTop : "100px"}} className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
     <div className='text-center pb-4' style={{width : "500px",margin : "20px auto", boxShadow : "1px 2px 5px black",borderRadius : "2px"}}>
     <div style={{width : "250px",margin : "0 auto"}}>
     <img src={Bkashs} alt="Bkash" style={{width : "100%"}}/>

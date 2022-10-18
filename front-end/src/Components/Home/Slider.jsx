@@ -6,6 +6,7 @@ const Slider = () => {
         id="carouselExampleCaptions"
         className="carousel slide"
         data-ride="carousel"
+        style={{width: '100%', height: '100vh'}}
       >
         <ol className="carousel-indicators">
           <li

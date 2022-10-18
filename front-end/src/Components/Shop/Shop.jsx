@@ -60,7 +60,7 @@ const Shop = () => {
           
            <Layout title="Shop Page">
         <Navbar></Navbar>
-          <div className="row m-0">
+          <div className="row m-0" style={{paddingTop : "100px"}}>
           <div className="col-3 ">
             <div className="row">
                   <div className="col-12 mt-5">

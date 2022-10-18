@@ -38,7 +38,7 @@ const About = () => {
       <Layout title="About Page">
         <Navbar></Navbar>
         <div className="container">
-          <div className="row mt-5">
+          <div className="row" style={{paddingTop : "100px"}}>
             <div className="col-10 offset-1">
               <img
                 src="./img/office.jpeg"

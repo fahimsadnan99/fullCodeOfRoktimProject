@@ -27,7 +27,7 @@ const Dashbord = () => {
     <>
       <Layout title="user dashbord">
         <Navbar></Navbar>
-        <div className="row mt-3">
+        <div className="row" style={{paddingTop : "100px"}}>
           <div className="col-md-3">
             <ul class="list-group">
               <li class="list-group-item active">User Link</li>

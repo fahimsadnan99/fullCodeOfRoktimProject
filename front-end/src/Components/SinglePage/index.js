@@ -28,7 +28,7 @@ const SinglePage = () => {
 
  
     
-    <div className="container mt-3">
+    <div className="container " style={{paddingTop : "100px"}}>
           <button className="btn btn-info" onClick={() => history.goBack()}>
                       &#11013; Go Back</button>
         <div className="row my-3">

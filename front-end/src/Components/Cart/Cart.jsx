@@ -18,11 +18,9 @@ const Cart = () => {
     transportFee: 0,
   });
 
-  const [activeBtn,setActiveBtn] = useState(true);
   const [deliveryCharge,setDeliveryCharge] = useState(0)
   const [divition,setDeviton] = useState("")
   const[showDiviton,setShowDiviton] = useState(false)
-  const [saCount,setSaCount] = useState(0)
 
   const ItemList = useSelector((state) => state);
 
@@ -36,19 +34,6 @@ const Cart = () => {
     } )
     return totalWeight * quantity;
   }
-
-  const countProduct = ()=>{
-
-    let quantity = 0;
-
-    ItemList?.item?.map((item)=>{
-      quantity += item.count;
-      
-    } )
-    return  quantity;
-  }
-
-
   const dispatch = useDispatch();
   const price = () => {
     let sum = 0;
@@ -154,15 +139,15 @@ if (e.target.value === "0"){
       
     if (e.target.value === "500"){
       setShowDiviton(false)
-             if(weight() >= 20){
+             if(weight() <= 20){
               window.alert("SA poribohon Support Mximum 20KG")
-             }else {
+             }else{
               setTransport({
                  transportSystem: "SA poribahan",
-                transportFee: saCount *250,
+                transportFee: weight() *70,
               });
 
-              setDeliveryCharge(saCount * 250)
+              setDeliveryCharge(weight() *70)
              }
 
     }
@@ -177,9 +162,9 @@ if (e.target.value === "0"){
       
       setTransport({
         transportSystem: "Home Delivery",
-        transportFee: saCount *250,
+        transportFee: weight() * 30,
       });
-      setDeliveryCharge(saCount *250,)
+      setDeliveryCharge(weight() * 30)
     }
     }
     
@@ -197,17 +182,6 @@ if (e.target.value === "0"){
       
       
     }, []);
-
-
-    useEffect(()=>{
-    let  quantity = 0;
-      ItemList?.item?.map((item)=>{
-        quantity += item.count;
-        
-      } )
-      setSaCount(quantity)
-  
-    },[activeBtn])
   
   
   const checkOut = () => {
@@ -233,10 +207,10 @@ if (e.target.value === "0"){
   return (
     <Layout title="Cart Page">
       <Navbar></Navbar>
-      <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
-      <div className="container">
+      <button  style={{paddingTop : "100px"}} className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+      <div className="container" >
         <h2
-          className="text-center mb-5 mt-2"
+          className="text-center mb-5 "
           style={{
             borderBottom: "2px solid black",
             width: "300px",
@@ -273,11 +247,9 @@ if (e.target.value === "0"){
       <td>
       <div>
       <button className="btn p-0"
-      onClick={() =>{
-        setActiveBtn(!activeBtn)
-      
+      onClick={() =>
         dispatch({ type: "ITEM_DIC", value: el._id })
-      }}
+      }
     
       >     <i class="fa fa-minus-square text-danger"
       style={{fontSize : "25px"}}
@@ -285,12 +257,9 @@ if (e.target.value === "0"){
  
       <span style={{padding : "0px 10px"}}>{el.count}</span>
       <button className="btn p-0"
-      onClick={() =>{
-
-        setActiveBtn(!activeBtn)
-      
+      onClick={() =>
         dispatch({ type: "ITEM_INC", value: el._id })
-      }}
+      }
       
       
       ><i style={{fontSize : "25px"}} class="fa fa-plus-square text-success" aria-hidden="true"></i></button>
@@ -351,7 +320,7 @@ if (e.target.value === "0"){
 
 
              
-                <h6>Delivery Charge : {deliveryCharge } Tk</h6>
+                <h6>Delivery Charge : {deliveryCharge * weight()} Tk</h6>
 
                 <h5>Total Cost : {transport.transportFee + price().sum}</h5>
               </div>

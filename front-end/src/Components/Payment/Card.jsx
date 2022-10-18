@@ -78,7 +78,7 @@ const  PaymentForm =()=> {
                 <Navabar></Navabar>
 
 
-                <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+                <button style={{paddingTop : "100px"}} className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
             <div id="PaymentForm" className="my-5 text-center">
                 <Cards
                         cvc={payment.cvc}

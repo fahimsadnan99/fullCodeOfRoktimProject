@@ -163,7 +163,7 @@ const Payment = () => {
   return (
     <Layout title="Payment">
                 <Navabar></Navabar>
-                <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+                <button className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()} style={{paddingTop : "100px"}}>Go Back</button>
                 <h2 className='text-center mt-4'>Select Payment Method</h2>
     <div id='paymentImg'>
     <div>
