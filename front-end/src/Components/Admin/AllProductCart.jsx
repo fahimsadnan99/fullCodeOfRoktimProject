@@ -42,6 +42,8 @@ const AllProductCart = () => {
    }, []);
     
     return (
+
+      
       <div className=" mb-2">
        
      

@@ -88,6 +88,8 @@ password.current = watch("password", "");
                     <input
                       type="email"
                       className="form-control input_field my-3"
+                      autoSave='off'
+                      autoComplete='off'
                       {...register("email", {
                         required: "Email is Require",
                         pattern: {
@@ -116,6 +118,8 @@ password.current = watch("password", "");
                           message: "Password must have at least 8 characters",
                         },
                       })}
+                      autoSave='off'
+                      autoComplete='off'
                       placeholder="Enter Your password"
                     ></input>
                   </div>

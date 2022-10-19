@@ -144,10 +144,10 @@ if (e.target.value === "0"){
              }else{
               setTransport({
                  transportSystem: "SA poribahan",
-                transportFee: weight() *70,
+                transportFee: weight() *20,
               });
 
-              setDeliveryCharge(weight() *70)
+              setDeliveryCharge(weight() *20)
              }
 
     }
@@ -320,7 +320,7 @@ if (e.target.value === "0"){
 
 
              
-                <h6>Delivery Charge : {deliveryCharge * weight()} Tk</h6>
+                <h6>Delivery Charge : {deliveryCharge } Tk</h6>
 
                 <h5>Total Cost : {transport.transportFee + price().sum}</h5>
               </div>

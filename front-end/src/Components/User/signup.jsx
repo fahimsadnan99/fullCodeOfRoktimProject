@@ -78,6 +78,7 @@ const Signup = () => {
                         message: "Name mustbe 4 carecter",
                       },
                     })}
+                    
                     placeholder="Enter Your Name"
                   ></input>
                 </div>

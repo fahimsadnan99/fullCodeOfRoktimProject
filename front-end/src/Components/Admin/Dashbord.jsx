@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
 import Navbar from "../Navbar/Navbar";
 import { userInfo } from "../../utils/auth";
@@ -7,19 +7,55 @@ import CreateCatagory from "./CreateCatagory";
 import ProductCreate from "./ProductCreate";
 import AllProduct from "./AllProduct";
 import Footer from '../Footer/Footer'
+import AdminInfo from "./AdminInfo";
+import UserInfo from "./UserInfo";
+import Order from "./Order";
+
+
+
+
+
+
+
+
 
 const AdminDashbord = () => {
-  const [allProductToggleBtn,setAllProductToggleBtn] = useState(false)
-  const { name, email, role } = userInfo();
- 
+  const [numberOfComponents,setNumberOfComponents] = useState(0)
+  const menu = ["Admin Info","All Product"," All User Info","Order"]
+  
+
+
+
+  
+ const components = (ind)=>{
+  if(ind == 0){
+    return <AdminInfo></AdminInfo>
+  }else if(ind == 1){
+    return (
+      <div className="col-8 ">
+              <AllProduct></AllProduct>
+        </div>
+    )
+  }else if(ind == 2){
+    return (<UserInfo></UserInfo>)
+  }else if(ind == 3){
+    return(<Order></Order>)
+  }
+}
+
+
+useEffect(()=>{
+ components(0)
+},[])
   return (
     <>
       <Layout title="Admin dashbord">
         <Navbar></Navbar>
         <div className="row " style={{paddingTop : "100px"}}>
-          <div className="col-md-3">
+          <div className="col-md-2">
             <ul class="list-group">
               <li class="list-group-item active">Menu</li>
+             
               <li class="list-group-item">
                 <button
                   type="button"
@@ -45,32 +81,35 @@ const AdminDashbord = () => {
                 {/* <CreateProduct></CreateProduct> */}
                 <ProductCreate></ProductCreate>
               </li>
-              <li className="list-group-item">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style={{ width: "150px" }}
-                  onClick={() => setAllProductToggleBtn(!allProductToggleBtn)}
-                >
-                  All Product
-                </button>
-              </li>
+
+              {menu?.map((el,index) =>{
+                return (
+                  <li className="list-group-item">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    style={{ width: "150px" }}
+                    onClick={()=> setNumberOfComponents(index)}
+                   
+                  >
+                    {el}
+                  </button>
+                </li>
+                )
+              })}
+             
+          
             </ul>
           </div>
-          {!allProductToggleBtn ? (
-            <div className="col-md-6 offset-md-1">
-              <ul class="list-group">
-                <li class="list-group-item active">User Information</li>
-                <li class="list-group-item">Name : {name} </li>
-                <li class="list-group-item">Email : {email}</li>
-                <li class="list-group-item">Role : {role} </li>
-              </ul>
-            </div>
-          ) : (
-            <div className="col-8 ">
-              {allProductToggleBtn && <AllProduct></AllProduct>}
-            </div>
-          )}
+
+
+        
+   
+        {components(numberOfComponents)}
+
+
+
+
         </div>
         <Footer></Footer>
       </Layout>
@@ -79,3 +118,18 @@ const AdminDashbord = () => {
 };
 
 export default AdminDashbord;
+
+
+     //  adminInfo(name,email,role)
+   
+
+         
+        //     <div className="col-8 ">
+        //       <AllProduct></AllProduct>
+        //     </div>
+         
+
+
+
+
+        // <h1>Hi</h1>

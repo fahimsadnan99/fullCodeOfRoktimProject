@@ -52,4 +52,14 @@ const signin = async (req, res) => {
   
 };
 
-module.exports = { signin, signup };
+
+const allUsers = async (req, res) => {
+  const allUser = await UserSchema.find()
+  try{
+    res.status(200).send(allUser)
+  }catch (err) {
+    return res.status(400).send("Server Error")
+  }
+}
+
+module.exports = { signin, signup ,allUsers};
