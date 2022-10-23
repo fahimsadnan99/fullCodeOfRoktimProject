@@ -25,14 +25,18 @@ const Cart = () => {
   const ItemList = useSelector((state) => state);
 
   console.log( "item", ItemList.item)
+  
   const weight = ()=>{
+ 
     let totalWeight = 0;
-    let quantity = 0;
+    
+    console.log("Total Weight", totalWeight);
     ItemList?.item?.map((item)=>{
-      totalWeight += item.weight;
-      quantity += item.count;
+      
+      totalWeight += item.tempWeight;
+     
     } )
-    return totalWeight * quantity;
+    return totalWeight 
   }
   const dispatch = useDispatch();
   const price = () => {
@@ -45,6 +49,34 @@ const Cart = () => {
     });
     return { sum, quantity };
   };
+
+
+   const calculateDeliveryCharge=()=>{
+    
+
+            switch(transport.transportSystem){
+              
+              case  "SA poribahan" :
+               
+                setDeliveryCharge(weight() *30)
+                setTransport(prev => ({
+                  ...prev,  transportFee: weight() *30,
+                }))
+             
+                break;
+              case "Home Delivery" :
+              
+                setDeliveryCharge(weight() *30)
+                setTransport(prev => ({
+                  ...prev,  transportFee: weight() *30,
+                }))
+                
+                break;
+                default :
+            }
+   }
+
+   
 
   const handleChageDivisions=(e)=>{
     if(weight() < 1000){
@@ -247,8 +279,12 @@ if (e.target.value === "0"){
       <td>
       <div>
       <button className="btn p-0"
-      onClick={() =>
+      onClick={() =>{
+        
         dispatch({ type: "ITEM_DIC", value: el._id })
+        calculateDeliveryCharge()
+      }
+      
       }
     
       >     <i class="fa fa-minus-square text-danger"
@@ -257,8 +293,11 @@ if (e.target.value === "0"){
  
       <span style={{padding : "0px 10px"}}>{el.count}</span>
       <button className="btn p-0"
-      onClick={() =>
+      onClick={() =>{
         dispatch({ type: "ITEM_INC", value: el._id })
+        
+        calculateDeliveryCharge()
+      }
       }
       
       

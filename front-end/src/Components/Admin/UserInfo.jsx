@@ -4,10 +4,7 @@ import axios from 'axios'
 const UserInfo = () => {
   const [user,setUser] = useState()
 
- let dates = "2022-03-19T04:36:36.023+00:00"
-    
 
-console.log(dates.split("T")[0]);
 
   useEffect(()=>{
     axios.get("http://localhost:3002/api/user/allUser")

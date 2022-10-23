@@ -5,10 +5,14 @@ const myState = {
   transportFee: 0,
   user: {},
   buyProduct: [],
-  email : ""
+  email : "",
+  checkOutData : {},
 };
 
+
+
 const ItemList = (state = myState, actions) => {
+  console.log("state",state);
   switch (actions.type) {
     case "ADD":
       console.log(actions.value);
@@ -16,9 +20,12 @@ const ItemList = (state = myState, actions) => {
       console.log(datas)
       if (datas === -1) {
       successMsg("success","Product Added successfully")
+      let tempValue = {...actions.value}
+      tempValue.tempWeight = tempValue.weight
+      
         return {
           ...state,
-          item: [...state.item, actions.value],
+          item: [...state.item, tempValue],
         };
       } else {
         ErrorMsg(true, "Item Already Added")
@@ -41,6 +48,9 @@ const ItemList = (state = myState, actions) => {
       let INC_ITEM = state.item.find((el) => el._id === actions.value);
 
       INC_ITEM.count = INC_ITEM.count + 1;
+      INC_ITEM.tempWeight = INC_ITEM.weight *  INC_ITEM.count
+      
+      console.log("item",INC_ITEM);
 
       const index = state.item.indexOf(INC_ITEM);
       state.item.splice(index, 1, INC_ITEM);
@@ -53,6 +63,8 @@ const ItemList = (state = myState, actions) => {
       let DIC_ITEM = state.item.find((el) => el._id === actions.value);
 
       if (DIC_ITEM.count > 1) DIC_ITEM.count = DIC_ITEM.count - 1;
+     
+      DIC_ITEM.tempWeight =  DIC_ITEM.weight *  DIC_ITEM.count
 
       const indexNumber = state.item.indexOf(DIC_ITEM);
       state.item.splice(indexNumber, 1, DIC_ITEM);
