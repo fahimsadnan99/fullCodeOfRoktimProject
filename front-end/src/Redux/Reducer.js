@@ -1,21 +1,23 @@
 import { ErrorMsg,successMsg } from "../utils/message";
+import {userInfo} from "../utils/auth"
 const myState = {
   item: [],
   transportSystem: "",
   transportFee: 0,
-  user: {},
+  user : {},
   buyProduct: [],
-  email : "",
-  checkOutData : {},
+  checkOutUserData : {},
+  number : 0,
+  bOrN : null
+
 };
 
 
 
 const ItemList = (state = myState, actions) => {
-  console.log("state",state);
+  
   switch (actions.type) {
     case "ADD":
-      console.log(actions.value);
       let datas = state.item.findIndex(el => el._id === actions.value._id)
       console.log(datas)
       if (datas === -1) {
@@ -80,7 +82,7 @@ const ItemList = (state = myState, actions) => {
         transportSystem: actions.value.transportSystem,
         transportFee: actions.value.transportFee,
       };
-
+      break;
     case "ADD_USER_DATA":
       return {
         ...state,
@@ -94,10 +96,12 @@ const ItemList = (state = myState, actions) => {
         buyProduct: [...tempItem, ...state.buyProduct]
 
       }
-      case  "TEMP_MAIL" :
+      break
+    case  "CHECKOUT_USER_DATA":
+     let {_id,name} =  userInfo()
         return {
           ...state,
-          email : actions.value.email
+          checkOutUserData : {...actions.value, _id : _id, name : name }
         } 
       break
     default:

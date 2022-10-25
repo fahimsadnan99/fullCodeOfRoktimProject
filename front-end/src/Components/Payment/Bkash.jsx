@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Bkashs from "../../assets/img/Bkash.svg"
 import Layout from "../Layout/Layout"
 import Navabar from "../Navbar/Navbar"
@@ -10,15 +10,24 @@ import { successMsg } from "../../utils/message";
 
 const Bkash = () => {
     const history = useHistory()
+    const [cardInfo,setCardInfo] = useState({
+      number : "",
+      textId : ""
+    })
     const ItemList = useSelector((state) => state);
-    const MsgSend = async (email) => {
-      await axios.post("http://localhost:3002/api/msg", { email: email })
-          .then(res => console.log(res))
-  }
+
+    const handleChange = (e)=>{
+      console.log([e.target.name] = e.target.value);
+      
+    }
+   
   const handleSubmit =()=>{
     
-    successMsg(true, "Product Perchanges Successful")
-    MsgSend(ItemList.email)
+    // successMsg(true, "Product Perchanges Successful")
+    // MsgSend(ItemList.email)
+
+    console.log("x");
+
   }
   return (
     <Layout>
@@ -30,8 +39,8 @@ const Bkash = () => {
     </div>
 
     <div style={{width : "80%", margin : "0 auto"}}>
-    <input type="number" placeholder="Enter Your Bkash Number" className='form-control'/>
-    <input type="text" placeholder="bKash Transaction ID (Trxid)" className='form-control mt-2'/>
+    <input type="number" name= "number" onChange={handleChange} placeholder="Enter Your Bkash Number" className='form-control'/>
+    <input type="text" name="textId" onChange={ handleChange}  placeholder="bKash Transaction ID (Trxid)" className='form-control mt-2'/>
 
     <button className='btn my-3' style={{backgroundColor : "#DF146E",color : "#fff"}} onClick={()=> handleSubmit}> Submit</button>
     </div>

@@ -12,6 +12,7 @@ import Footer from '../Footer/Footer'
 
 
 
+
 const Home = () => {
   const [product,setProduct] = useState([])
   const bestSalerProduct = product.reverse();
@@ -20,6 +21,8 @@ console.log(product);
     getProduct()
       .then(res => setProduct(res.data))
       .catch(err => console.log(err))
+
+      
   },[])
   
     return (

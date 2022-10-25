@@ -33,10 +33,12 @@ const Address = () => {
 
 
   const onSubmit = (e) => {
+    dispatch({ type: "CHECKOUT_USER_DATA", value:  e });
+    console.log(e);
     // successMsg(true, "Product Perchanges Successful")
     // dispatch({ type: "REMOVE_ALL_ITEM" });
     history.push("/payment")
-    dispatch({ type: "TEMP_MAIL", value:  {email : e.email} });
+   
     reset();
   };
 

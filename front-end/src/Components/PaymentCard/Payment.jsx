@@ -157,9 +157,12 @@ import Bkash from "../../assets/img/Bkash.svg"
 import Visa from "../../assets/img/Visa.jpg"
 import "./Payment.css"
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Payment = () => {
   const history = useHistory()
+  const ItemList = useSelector((state) => state);
+  console.log("List", ItemList);
   return (
     <Layout title="Payment">
                 <Navabar></Navabar>
