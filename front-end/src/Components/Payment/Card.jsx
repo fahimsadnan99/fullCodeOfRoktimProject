@@ -40,16 +40,13 @@ const  PaymentForm =()=> {
        
     }
 
-    const MsgSend = async (email) => {
-        await axios.post("http://localhost:3002/api/msg", { email: email })
-            .then(res => console.log(res))
-    }
+  
 
    const  HandleSubmit = () => {
 
     if(payment.number.length === 16 && payment.cvc.length === 3 && payment.expiry.length === 5){
 
-       MsgSend(ItemList.email)
+       
 
         successMsg(true, "Product Perchanges Successful")
         dispatch({ type: "REMOVE_ALL_ITEM" });
@@ -62,7 +59,7 @@ const  PaymentForm =()=> {
         }else if(payment.expiry.length !== 4){
             window.alert("Please Enter 4 Digit Expiry")
         }   else{
-            MsgSend(ItemList.email)
+           
 
             successMsg(true, "Product Perchanges Successful")
             dispatch({ type: "REMOVE_ALL_ITEM" });

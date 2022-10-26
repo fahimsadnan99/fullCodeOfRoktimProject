@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Bkashs from "../../assets/img/Nagad.png"
 import Layout from "../Layout/Layout"
 import Navabar from "../Navbar/Navbar"
@@ -11,14 +11,28 @@ import { successMsg } from "../../utils/message";
 const Bkash = () => {
     const history = useHistory()
     const ItemList = useSelector((state) => state);
-    const MsgSend = async (email) => {
-      await axios.post("http://localhost:3002/api/msg", { email: email })
-          .then(res => console.log(res))
-  }
+    const [cardInfo,setCardInfo] = useState({
+      number : "",
+      textId : ""
+    })
+
+    const handleChange = (e)=>{
+     
+      setCardInfo({
+        ...cardInfo,
+        [e.target.name]: e.target.value
+      })
+      
+    }
   const handleSubmit =()=>{
-    
-    successMsg(true, "Product Perchanges Successful")
-    MsgSend(ItemList.email)
+    if(cardInfo.number.length < 11 || cardInfo.number.length > 11){
+      window.alert("Number must be 11")
+   }else if(cardInfo.textId.length < 15 || cardInfo.textId.length >16){
+     window.alert("TextId must be 16 letters")
+   }else{
+     
+     successMsg(true, "Go to Processing")
+   }
   }
   return (
     <Layout>
@@ -31,10 +45,10 @@ const Bkash = () => {
     </div>
 
     <div style={{width : "80%", margin : "0 auto"}}>
-    <input type="number" placeholder="Enter Your Nagad Number" className='form-control'/>
-    <input type="text" placeholder="Nagad Transaction ID (Trxid)" className='form-control mt-2'/>
+    <input type="number" name='number' onChange={handleChange} placeholder="Enter Your Nagad Number" className='form-control'/>
+    <input type="text" name='textId' onChange={handleChange}  placeholder="Nagad Transaction ID (Trxid)" className='form-control mt-2'/>
 
-    <button className='btn  my-3' style={{backgroundColor : "#ED1C24",color : "#fff"}}onClick={()=> handleSubmit}> Submit</button>
+    <button className='btn  my-3' style={{backgroundColor : "#ED1C24",color : "#fff"}}onClick={()=> handleSubmit()}> Submit</button>
     </div>
     </div>
     <Footer></Footer>

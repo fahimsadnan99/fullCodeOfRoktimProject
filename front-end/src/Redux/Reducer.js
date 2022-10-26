@@ -101,7 +101,7 @@ const ItemList = (state = myState, actions) => {
      let {_id,name} =  userInfo()
         return {
           ...state,
-          checkOutUserData : {...actions.value, _id : _id, name : name }
+          checkOutUserData : {...actions.value, user : _id, name : name }
         } 
       break
     default:

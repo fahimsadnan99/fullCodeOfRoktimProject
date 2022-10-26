@@ -8,27 +8,52 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios"
 import { successMsg } from "../../utils/message";
 
+
 const Bkash = () => {
     const history = useHistory()
     const [cardInfo,setCardInfo] = useState({
       number : "",
-      textId : ""
+      textId : "",
+      bkash : true,
     })
+    const dispatch = useDispatch()
     const ItemList = useSelector((state) => state);
 
     const handleChange = (e)=>{
-      console.log([e.target.name] = e.target.value);
+     
+      setCardInfo({
+        ...cardInfo,
+        [e.target.name]: e.target.value
+      })
       
     }
    
   const handleSubmit =()=>{
     
-    // successMsg(true, "Product Perchanges Successful")
+    
     // MsgSend(ItemList.email)
 
-    console.log("x");
+  if(cardInfo.number.length < 11 || cardInfo.number.length > 11){
+     window.alert("Number must be 11")
+  }else if(cardInfo.textId.length < 15 || cardInfo.textId.length >16){
+    window.alert("TextId must be 16 letters")
+  }else{
+    
+    successMsg(true, "Go to Processing")
+    let test = {...ItemList.checkOutUserData,
+      item : ItemList.item,
+      cardInfo
+    }
+    console.log(test);
+    axios.post("http://localhost:3002/api/order", test)
+    dispatch({type : "REMOVE_ALL_ITEM"})
+    history.push("/")
+    
+  }
 
   }
+
+
   return (
     <Layout>
     <Navabar></Navabar>
@@ -42,7 +67,7 @@ const Bkash = () => {
     <input type="number" name= "number" onChange={handleChange} placeholder="Enter Your Bkash Number" className='form-control'/>
     <input type="text" name="textId" onChange={ handleChange}  placeholder="bKash Transaction ID (Trxid)" className='form-control mt-2'/>
 
-    <button className='btn my-3' style={{backgroundColor : "#DF146E",color : "#fff"}} onClick={()=> handleSubmit}> Submit</button>
+    <button className='btn my-3' style={{backgroundColor : "#DF146E",color : "#fff"}} onClick={()=> handleSubmit()}> Submit</button>
     </div>
     </div>
     <Footer></Footer>
