@@ -41,6 +41,10 @@ const Order = mongoose.Schema({
         type : String,
         enum : ["Pending","On Going","Done"],
         default : "Pending"
+    },
+    totalPrice : {
+        type : Number,
+        required: true,
     }
 
 },{ timestamps: true })

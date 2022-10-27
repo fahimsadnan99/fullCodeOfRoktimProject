@@ -1,5 +1,5 @@
 const express = require("express")
-const {OrderPost,getAllOrder,userAllOrder} = require("../controles/OrderController")
+const {OrderPost,getAllOrder,userAllOrder,updatePaid,updateStatus} = require("../controles/OrderController")
 
 
 
@@ -10,6 +10,11 @@ Routers.route("/")
 
   Routers.route("/:id")
   .get(userAllOrder)
+
+  Routers.route("/paid/:id")
+  .patch(updatePaid)
+  Routers.route("/status/:id")
+  .patch(updateStatus)
 
 
 module.exports = Routers

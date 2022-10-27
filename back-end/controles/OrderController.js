@@ -28,13 +28,37 @@ const userAllOrder = async (req,res)=>{
     let {id} = req.params
     console.log(id);
   
-    let allOrder = await OderSchema.findById({user : id })
-    console.log(allOrder);
-    // try{
-    //     return  res.status(200).send(allOrder)
-    // }catch(err){
-    //     console.log(err.message);
-    // }
+    let allOrder = await OderSchema.find({user : id })
+    
+    try{
+        return  res.status(200).send(allOrder)
+    }catch(err){
+        console.log(err.message);
+    }
      
 }
-module.exports = { OrderPost,getAllOrder,userAllOrder };
+
+
+const updatePaid = async (req,res)=>{
+  let {id }= req.params
+
+  
+  try{
+     await OderSchema.findByIdAndUpdate({_id : id}, req.body) 
+    res.status(201).send("Successfully updated")
+  }catch(err){
+    return res.status(500).send(err.message)
+  }
+}
+
+
+const updateStatus = async (req,res)=>{
+  let {id} = req.params
+  try{
+    await OderSchema.findByIdAndUpdate({_id : id}, req.body) 
+   res.status(201).send("Successfully updated")
+ }catch(err){
+   return res.status(500).send(err.message)
+ }
+}
+module.exports = { OrderPost,getAllOrder,userAllOrder,updatePaid,updateStatus };

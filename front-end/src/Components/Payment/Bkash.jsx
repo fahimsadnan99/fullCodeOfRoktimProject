@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Bkashs from "../../assets/img/Bkash.svg"
 import Layout from "../Layout/Layout"
 import Navabar from "../Navbar/Navbar"
@@ -16,6 +16,7 @@ const Bkash = () => {
       textId : "",
       bkash : true,
     })
+    const [totalPrice,setTotalPrice] = useState("")
     const dispatch = useDispatch()
     const ItemList = useSelector((state) => state);
 
@@ -26,6 +27,14 @@ const Bkash = () => {
         [e.target.name]: e.target.value
       })
       
+    }
+
+    const totalPriceCalculte = ()=>{
+      let price = 0;
+      ItemList?.item?.map(e => {
+       price += e.price
+      })
+      return price
     }
    
   const handleSubmit =()=>{
@@ -42,17 +51,26 @@ const Bkash = () => {
     successMsg(true, "Go to Processing")
     let test = {...ItemList.checkOutUserData,
       item : ItemList.item,
-      cardInfo
+      cardInfo,
+      totalPrice : totalPrice
     }
     console.log(test);
     axios.post("http://localhost:3002/api/order", test)
-    dispatch({type : "REMOVE_ALL_ITEM"})
-    history.push("/")
+    // dispatch({type : "REMOVE_ALL_ITEM"})
+    // history.push("/")
     
   }
 
   }
 
+  
+  useEffect(()=>{
+
+    console.log("xxx");
+    setTotalPrice(totalPriceCalculte() + ItemList.transportFee )
+   
+    
+  },[])
 
   return (
     <Layout>
