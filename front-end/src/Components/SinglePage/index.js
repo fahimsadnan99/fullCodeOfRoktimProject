@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Footer from '../Footer/Footer'
 import Loader from "../Loader"
 
+
 const SinglePage = () => {
   const [item,setItem] = useState()
   const {id} = useParams()
@@ -14,11 +15,14 @@ const SinglePage = () => {
   const dispatch = useDispatch();
   
 
- useEffect( async()=>{
-    await axios.get(`http://localhost:3002/api/product/${id}`)
+ useEffect(()=>{
+     axios.get(`http://localhost:3002/api/product/${id}`)
       .then(res => setItem(res.data))
+
+      
                       
- })
+ },[])
+
 
   return (
     <>
