@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Bkashs from "../../assets/img/Nagad.png"
 import Layout from "../Layout/Layout"
 import Navabar from "../Navbar/Navbar"
@@ -11,11 +11,22 @@ import { successMsg } from "../../utils/message";
 const Bkash = () => {
     const history = useHistory()
     const ItemList = useSelector((state) => state);
+    const [totalPrice,setTotalPrice] = useState("")
     const [cardInfo,setCardInfo] = useState({
       number : "",
-      textId : ""
+      textId : "",
+      bkash : false
     })
+    const dispatch = useDispatch()
 
+    const totalPriceCalculte = ()=>{
+      let price = 0;
+      ItemList?.item?.map(e => {
+       price = e.price * e.count
+      })
+      return price
+    }
+    
     const handleChange = (e)=>{
      
       setCardInfo({
@@ -30,10 +41,27 @@ const Bkash = () => {
    }else if(cardInfo.textId.length < 15 || cardInfo.textId.length >16){
      window.alert("TextId must be 16 letters")
    }else{
-     
-     successMsg(true, "Go to Processing")
+    successMsg(true, "Go to Processing")
+    let test = {...ItemList.checkOutUserData,
+      item : ItemList.item,
+      cardInfo,
+      totalPrice : totalPrice
+    }
+    console.log(test);
+    axios.post("http://localhost:3002/api/order", test)
+    dispatch({type : "REMOVE_ALL_ITEM"})
+    history.push("/")
    }
   }
+
+
+  useEffect(()=>{
+
+    
+    setTotalPrice(totalPriceCalculte() + ItemList.transportFee )
+   
+    
+  },[])
   return (
     <Layout>
     <Navabar></Navabar>

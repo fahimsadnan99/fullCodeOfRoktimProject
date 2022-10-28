@@ -194,9 +194,9 @@ if (e.target.value === "0"){
       
       setTransport({
         transportSystem: "Home Delivery",
-        transportFee: weight() * 30,
+        transportFee: weight() * 20,
       });
-      setDeliveryCharge(weight() * 30)
+      setDeliveryCharge(weight() * 20)
     }
     }
     

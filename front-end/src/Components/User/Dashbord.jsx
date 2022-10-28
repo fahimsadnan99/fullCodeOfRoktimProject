@@ -7,19 +7,38 @@ import { GetProfileData } from "../../API/AllApi"
 import {NavLink} from "react-router-dom"
 import Footer from '../Footer/Footer'
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Dashbord = () => {
   const [data, setData] = useState()
   const [PurchaseHistory,setPurchaseHistory] = useState(false)
-  const { name, email, role } = userInfo();
+  const [info,setInfo] = useState()
+  const { name, email, role, _id } = userInfo();
   const itemList = useSelector((state) => state);
+
+  
+
+
+  const productWeight = (e)=>{
+    let weight = 0;
+  
+    e.item?.map(el=>{
+     weight += el.tempWeight
+     
+    })
+    return weight 
+ }
+
 
   useEffect(() => {
   GetProfileData()
     .then(res => setData(res.data))
   .catch(err => console.log(err))
 
-    console.log(itemList);
+    axios.get(`http://localhost:3002/api/order/${_id}`)
+    .then(res => setInfo(res.data))
+
+    
 },[])
 
 
@@ -67,7 +86,66 @@ const Dashbord = () => {
             </ul>
           </div>
 
-          <div className="col-md-6 offset-md-1">
+        
+         <div className="row">
+         
+         <div className="col-md-80  m-auto">
+
+          
+
+
+            <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Product</th>
+                <th scope="col">KG</th>
+                <th scope="col">Tk</th>
+                <th scope="col">Paid</th>
+                <th scope="col">Address</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            {info?.map(el =>{
+              return (
+                <>
+                <tr>
+              <td>{el.email}</td>
+              <td>{
+                el?.item?.map(e =>{
+                  return e.name + ", "
+                })
+              }</td>
+              <td>{productWeight(el)}Kg</td>
+              <td>{el.totalPrice}/-</td>
+              <td>
+           {el.paid}
+            </td>
+  
+            <td>
+           {el.city} , {el.address}
+            </td>
+            <td>
+         {el.status}
+            
+            </td>
+              </tr>
+  
+  
+  
+  
+             
+                </>
+              )
+            })}
+              
+            </tbody>
+          </table>
+            </div>
+
+
+            <div className="col-md-9 m-auto">
             <ul class="list-group">
               <li class="list-group-item active">User Information</li>
               <li class="list-group-item">Name : {name} </li>
@@ -85,34 +163,15 @@ const Dashbord = () => {
               <li class="list-group-item">Role : {role} </li>
             </ul>
           </div>
-         {PurchaseHistory && (<div className="col-md-8 offset-md-2 mt-3">
-            {itemList?.buyProduct.length == 0 &&  (<h4 className="color-warning">No Item Found</h4>)}
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">image</th>
-                  <th scope="col">Name</th>
 
-                </tr>
-              </thead>
-              <tbody>
-                {  itemList?.buyProduct.map((product,index) => {
-              return (
-                  <tr>
-                    <th scope="row">{index + 1}</th>
-                    <td style={{padding : "5px 0px"}}><img src={product.photo} style={{ width : "50px"}} className="img-fluid"  alt={product.name}></img></td>
-                  <td><h6>{product.name}</h6></td>
-                  </tr>
-
-               )
-            })}
-        </tbody>
-     </table>
+         </div>
+      
             
-           
-          </div>
-          )}
+        
+
+
+          
+         
         </div>
         <Footer></Footer>
       </Layout>
@@ -121,3 +180,5 @@ const Dashbord = () => {
 };
 
 export default Dashbord;
+
+

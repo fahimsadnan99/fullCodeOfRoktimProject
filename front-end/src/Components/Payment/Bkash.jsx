@@ -32,7 +32,7 @@ const Bkash = () => {
     const totalPriceCalculte = ()=>{
       let price = 0;
       ItemList?.item?.map(e => {
-       price += e.price
+       price = e.price * e.count
       })
       return price
     }
@@ -56,17 +56,18 @@ const Bkash = () => {
     }
     console.log(test);
     axios.post("http://localhost:3002/api/order", test)
-    // dispatch({type : "REMOVE_ALL_ITEM"})
-    // history.push("/")
+    dispatch({type : "REMOVE_ALL_ITEM"})
+    history.push("/")
     
   }
 
   }
-
+  
+  
   
   useEffect(()=>{
 
-    console.log("xxx");
+    
     setTotalPrice(totalPriceCalculte() + ItemList.transportFee )
    
     

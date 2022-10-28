@@ -104,6 +104,11 @@ const Order = () => {
           
           </td>
             </tr>
+            <tr>
+            <td>{el?.cardInfo?.bkash ? "Bkash" : "Nogod"} -{el?.cardInfo.number}
+            </td>
+            <td>TextId - {el?.cardInfo?.textId}</td>
+            </tr>
 
 
 

@@ -176,9 +176,7 @@ const Payment = () => {
     <img src={Nagad} alt="Nagod" onClick={() => history.push("/nogod")}/>
     </div>
 
-    <div>
-    <img src={Visa} alt="Visa" onClick={() => history.push("/card")}/>
-    </div>
+  
     
     </div>
     <Footer></Footer>
@@ -187,3 +185,8 @@ const Payment = () => {
 }
 
 export default Payment
+
+
+  // <div>
+    // <img src={Visa} alt="Visa" onClick={() => history.push("/card")}/>
+    // </div>
