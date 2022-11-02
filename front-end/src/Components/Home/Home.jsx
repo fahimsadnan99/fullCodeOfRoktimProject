@@ -9,6 +9,7 @@ import BestSalesSlider from './BestSalesSlider';
 import {getProduct} from "../../API/AllApi"
 import Loader from "../Loader"
 import Footer from '../Footer/Footer'
+import Category from './Category';
 
 
 
@@ -29,8 +30,9 @@ console.log(product);
       <>
 {product.length ? (        <Layout title="Apon Basic Need Food Ltd">
           <Navbar></Navbar>
+          
           <Slider></Slider>
-
+          <Category></Category>
           <BestSale title="Best Sale"></BestSale>
           <div className="container">
             <BestSalesSlider array={bestSalerProduct}></BestSalesSlider>

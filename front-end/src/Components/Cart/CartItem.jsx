@@ -53,7 +53,7 @@ const CartItem = ({ el }) => {
               })
             }
           >
-            <i class="fa fa-trash"></i>
+            <i class="fa fa-trash" ></i>
           </button>
         </div>
       </div>

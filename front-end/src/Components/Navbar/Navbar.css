@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .NavbarWrapper {
-    background-color: rgb(236, 230, 230);
+    background-color: #1B3F9E;
     position: fixed !important;
     width: 100%;
     z-index: 1;
@@ -29,8 +29,10 @@
     font-weight: 600;
       font-family: 'Pacifico', cursive;
      font-family: 'Kaushan Script', cursive;
-     color: rgb(34, 12, 12);
+     color: #C0EB36;
      font-size: 25px;
+     font-weight: bold;
+     
      
 }
 .active_css {
@@ -41,13 +43,13 @@
     box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.6),
     10px 10px 15px rgba(70,70,70,0.12);
     border-radius: 10px;
-    background-color: white !important;
+    background-color: #C0EB36 !important;
    
 }
 .nav_Link {
     margin-left: 5px;
     padding: 10px 5px;
-    color: rgba(24, 24, 21, 0.938);
+    color: white;
     text-decoration: none !important;
     font-size: 16px;
     font-weight: 600;
