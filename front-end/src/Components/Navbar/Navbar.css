@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .NavbarWrapper {
-    background-color: #1B3F9E;
+    background-color: #000000a8;
     position: fixed !important;
     width: 100%;
     z-index: 1;

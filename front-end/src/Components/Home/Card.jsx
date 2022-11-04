@@ -58,12 +58,12 @@ const Card = ({ item }) => {
           <i class="material-icons">info_outline</i>
         </div>
         <div class="contents">
-        <h4 style={{borderBottom : "2px solid #669999",color : "white"}}> {item.name}</h4>
+        <h4 style={{borderBottom : "2px solid #669999",color : "black"}}> {item.name}</h4>
           <table>
         
             <tr>
               
-              <h5>Price : <span style={{color : "#CC9966"}}>{item.price} </span> TK</h5>
+              <h5>Price : <span >{item.price} </span> TK</h5>
              
             </tr>
             <tr>

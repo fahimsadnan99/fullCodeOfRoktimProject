@@ -10,6 +10,8 @@ import {getProduct} from "../../API/AllApi"
 import Loader from "../Loader"
 import Footer from '../Footer/Footer'
 import Category from './Category';
+import Banner from "./BannerSection"
+import AllProduct from './AllProduct';
 
 
 
@@ -30,12 +32,13 @@ console.log(product);
       <>
 {product.length ? (        <Layout title="Apon Basic Need Food Ltd">
           <Navbar></Navbar>
+          <Banner></Banner>
           
-          <Slider></Slider>
           <Category></Category>
           <BestSale title="Best Sale"></BestSale>
           <div className="container">
-            <BestSalesSlider array={bestSalerProduct}></BestSalesSlider>
+            
+            <AllProduct array={bestSalerProduct}></AllProduct>
           </div>
           <BestSale title="New Product"></BestSale>
           <div className="container">

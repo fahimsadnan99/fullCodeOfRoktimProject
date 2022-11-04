@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 .sliderImg {
     width: 100%;
     height: 100vh;
@@ -201,6 +201,9 @@
   transform: translateY(-100%);
 }
 #wrapper .inside {
+
+ 
+
   z-index: 9;
   background: #1B3F9E;
   width: 140px;
@@ -211,12 +214,23 @@
   border-radius: 0px 0px 200px 200px;
   transition: all 0.5s, border-radius 2s, top 1s;
   overflow: hidden;
+
+
+
+  background: rgba(42, 4, 255, 0.24);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  color: black !important;
 }
 #wrapper .inside .icon {
   position: absolute;
   right: 85px;
   top: 85px;
-  color: white;
+  color: rgb(0, 0, 0);
   opacity: 1;
 }
 #wrapper .inside:hover {
@@ -248,7 +262,7 @@
   width: 100%;
 }
 #wrapper .inside .contents h1, #wrapper .inside .contents p, #wrapper .inside .contents table {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 #wrapper .inside .contents p {
   font-size: 13px;
@@ -311,4 +325,82 @@ background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+
+#banner {
+  width: 100%;
+  height:700px;
+  float: left;
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.511) 0%,rgba(0, 0, 0, 0.593)100%), url("../../assets/img/banner.jpeg");
+  background-size: cover;
+  background-position: center;
+ 
+  
+}
+
+.textField {
+  margin-top: 250px;
+  margin-left: 350px;
+  font-weight: bold;
+  color: #C0EB36;
+  font-family: Patua One;
+  font-size: 50px;
+}
+
+#banner button {
+ margin-left: 600px;
+ 
+  color: black;
+  font-family: Patua One;
+  font-size: 20px;
+ 
+  background-color: #C0EB36;
+  width: 160px;
+  text-align: left;
+ 
+}
+
+.categoriSection {
+  background-color: #3cb61e79;
+  padding: 50px 0px;
+ 
+  
+}
+.categoriSectionContect{
+  position: absolute;
+  top: -100px;
+}
+
+
+.ServiceField {
+  
+  top: -100px;
+  padding-bottom: "50px" !important;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+font-weight: bold;
+}
+#banner span {
+  animation :  animates 1s linear infinite;
+}
+
+@keyframes animates {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left : 20px;
+  }
+  100% {
+    margin-left: 0px;
+  }
 }
