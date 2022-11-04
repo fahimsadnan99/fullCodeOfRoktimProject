@@ -15,18 +15,18 @@ const CustomarQuto = () => {
       };
     
     return (
-      <div className="text-center">
+      <div className="text-center bgQute">
         <Slider {...settings}>
           <div>
             <div className="text-center">
-              <div style={{ width: "700px", margin: "0 auto" }}>
+              <div className='quote p-4' style={{ width: "700px", margin: "0 auto" }}>
                 <div>
                   <div className="imgSlide">
                     <img
-                      src="./img/img1.jpg"
+                      src="./img/buyer2.jpeg"
                       alt="img"
                       className="img-fluid mx-auto"
-                      style={{ width: "80px", borderRadius: "50%" }}
+                      style={{ width: "80px", borderRadius: "50%",height :"80px" }}
                     ></img>
                   </div>
                   <div className="qute my-3">
@@ -46,14 +46,14 @@ const CustomarQuto = () => {
 
           <div>
             <div className="text-center">
-              <div style={{ width: "700px", margin: "0 auto" }}>
+              <div className='quote p-4' style={{ width: "700px", margin: "0 auto" }}>
                 <div>
                   <div className="imgSlide">
                     <img
-                      src="./img/img3.jpg"
+                      src="./img/buyer3.jpeg"
                       alt="img"
                       className="img-fluid mx-auto"
-                      style={{ width: "80px", borderRadius: "50%" }}
+                      style={{ width: "80px", borderRadius: "50%",height :"80px" }}
                     ></img>
                   </div>
                   <div className="qute my-3">
@@ -73,14 +73,14 @@ const CustomarQuto = () => {
 
           <div>
             <div className="text-center">
-              <div style={{ width: "700px", margin: "0 auto" }}>
+              <div className='quote p-4' style={{ width: "700px", margin: "0 auto" }}>
                 <div>
                   <div className="imgSlide">
                     <img
-                      src="./img/img2.jpg"
+                      src="./img/buyer4.jpeg"
                       alt="img"
                       className="img-fluid mx-auto"
-                      style={{ width: "80px", borderRadius: "50%" }}
+                      style={{ width: "80px", borderRadius: "50%",height :"80px"}}
                     ></img>
                   </div>
                   <div className="qute my-3">

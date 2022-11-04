@@ -348,7 +348,7 @@ background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
   font-size: 50px;
 }
 
-#banner button {
+#banner button, .paralaxBtn {
  margin-left: 600px;
  
   color: black;
@@ -362,8 +362,9 @@ background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
 }
 
 .categoriSection {
-  background-color: #3cb61e79;
+  background-color: #7274702c;
   padding: 50px 0px;
+  font-family: Patua One ;
  
   
 }
@@ -391,6 +392,47 @@ font-weight: bold;
 }
 #banner span {
   animation :  animates 1s linear infinite;
+}
+
+.paralax {
+    width: 100%;
+    height:380px;
+    float: left;
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.611) 0%,rgba(0, 0, 0, 0.693)100%), url("../../assets/img/peralax1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0px;
+    margin-bottom: 100px;
+
+}
+
+.paralax1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color : wheat;
+  
+  font-family: Patua One;
+  color: #C0EB36;
+  
+}
+
+.quote {
+  
+  background: rgba(255, 255, 255, 0.2);
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bgQute {
+  background-color: #2c2c2b;
+  padding: 40px 0px;
+  text-align: center;
+  color: #fff;
 }
 
 @keyframes animates {

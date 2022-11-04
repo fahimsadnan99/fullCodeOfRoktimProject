@@ -8,7 +8,7 @@ const BannerSection = () => {
     <div id="banner">
     <p className='textField'>Long Live The Heart And Bond</p>
     <br></br>
-    <button onClick={()=> history.push("/shop") } className='btn'>Shop Now  <span >🡺</span>  </button>
+    <button onClick={()=> history.push("/shop") } className='btn mt-5'>Shop Now  <span >🡺</span>  </button>
     </div>
   )
 }

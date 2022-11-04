@@ -5,6 +5,12 @@
     background-color: #000000a8;
     position: fixed !important;
     width: 100%;
+    background: rgba(0, 0, 0, 0.575);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.384);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 1;
 }
 .navWrap {
@@ -40,8 +46,7 @@
     color: black !important;
     border-radius: 10px;
     -webkit-appearance: none;
-    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.6),
-    10px 10px 15px rgba(70,70,70,0.12);
+   
     border-radius: 10px;
     background-color: #C0EB36 !important;
    

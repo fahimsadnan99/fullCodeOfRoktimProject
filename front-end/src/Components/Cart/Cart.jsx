@@ -267,7 +267,7 @@ if (e.target.value === "0"){
   
   { ItemList?.item.map((el) => {
     return (
-      <tr style={{fontSize : "18px"}}>
+      <tr style={{fontSize : "18px"}} className="cartItem">
         <td><img
         src={el.photo}
         alt="img"

@@ -12,7 +12,9 @@ import Footer from '../Footer/Footer'
 import Category from './Category';
 import Banner from "./BannerSection"
 import AllProduct from './AllProduct';
-
+import Paralax from './Paralax';
+import CustomarQuto from '../About/CustomarQuto';
+import ImgGallary from './ImgGallary';
 
 
 
@@ -36,14 +38,22 @@ console.log(product);
           
           <Category></Category>
           <BestSale title="Best Sale"></BestSale>
-          <div className="container">
+          <div className="container my-5">
             
             <AllProduct array={bestSalerProduct}></AllProduct>
           </div>
+          <Paralax></Paralax>
           <BestSale title="New Product"></BestSale>
-          <div className="container">
+          <div className="container my-3">
             <BestSalesSlider array={bestSalerProduct}></BestSalesSlider>
           </div>
+          <BestSale title="Image Gallery"></BestSale>
+          <ImgGallary></ImgGallary>
+          <BestSale title="Client Talk"></BestSale>
+<div className='my-5'>
+<CustomarQuto></CustomarQuto>
+</div>
+ 
          <Footer></Footer>
         </Layout>) : <Loader></Loader> }
       </>

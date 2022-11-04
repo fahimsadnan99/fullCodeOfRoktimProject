@@ -14,10 +14,10 @@ const Category = () => {
      {
       contecnt.map(el=>{
         return (
-          <div className='col-3 d-inline-block ServiceField p-2'>
-           <i class={el.icon} style={{fontSize : "50px", color : "white",padding : "20px 0px"}} aria-hidden="true"></i>
-           <p>{el.text}</p>
-           <p>{el.number}</p>
+          <div className='col-3  d-inline-block ServiceField p-2'>
+           <i class={el.icon} style={{fontSize : "50px", color : "yellow",padding : "20px 0px",textShadow : "2px 10px 10px black" }} aria-hidden="true"></i>
+           <p style={{textShadow : "2px 5px 10px rgba(0,0,0,0.3)"}}>{el.text}</p>
+           <p style={{textShadow : "2px 5px 10px rgba(0,0,0,0.3)"}}>{el.number}</p>
           </div>
         )
       })
@@ -31,10 +31,3 @@ const Category = () => {
 export default Category
 
 
-// <i class="fa fa-rocket" style={{fontSize : "35px", color : "red",padding : "20px 0px"}} aria-hidden="true"></i>
-
-// <i class="fa fa-check-circle" style={{fontSize : "35px", color : "red",padding : "20px 0px"}} aria-hidden="true"></i>
-
-// <i class="fa fa-truck" style={{fontSize : "35px", color : "red",padding : "20px 0px"}} aria-hidden="true"></i>
-
-// <i class="fa fa-heart" style={{fontSize : "35px", color : "red",padding : "20px 0px"}} aria-hidden="true"></i>
