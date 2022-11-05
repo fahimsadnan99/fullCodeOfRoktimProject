@@ -70,7 +70,7 @@ password.current = watch("password", "");
       <Layout title="Signin Page">
         <Navbar></Navbar>
         <div className="container" style={{paddingTop : "100px"}}>
-          <div className="row">
+          <div className="row signupPage">
             <div className="col-lg-6  col-md-8  col-12 animate__bounceInDown">
               <div className=" signup_Wrapper p-3 my-5">
                 <p className="signupText mb-2 cssanimation lePeek sequence">

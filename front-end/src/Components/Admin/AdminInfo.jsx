@@ -49,11 +49,11 @@ const AdminInfo = () => {
     axios.get("http://localhost:3002/api/order").then((res) => setInfo(res.data));
   }, []);
   return (
-    <div className="col-md-8 ">
+    <div className="col-md-8 " style={{zIndex : "0"}}>
       <div className="row">
         <div className="col-12">
-          <ul class="list-group">
-            <li class="list-group-item active">User Information</li>
+          <ul class="list-group" style={{listStyle : "none"}}>
+            <li style={{backgroundColor : "#720707", color : "white" ,padding : "20px 20px",fontWeight : "bold",fontFamily : "Patua One",fontSize : "25px",borderTopLeftRadius : "8px", borderTopRightRadius : "8px"}}>User Information</li>
             <li class="list-group-item">Name : {name} </li>
             <li class="list-group-item">Email : {email}</li>
             <li class="list-group-item">Role : {role} </li>
@@ -62,7 +62,7 @@ const AdminInfo = () => {
 
         <div className="col-12" style={{ marginLeft: "15px" }}>
           <div className="row mt-3">
-            <div className="col-3 card text-center">
+            <div className="col-3 card text-center orderCard">
               <div className="p-1">
                 <h3>Total User</h3>
                 <div>
@@ -76,7 +76,7 @@ const AdminInfo = () => {
               </div>
             </div>
 
-            <div className="col-3 card text-center ml-3">
+            <div className="col-3 card text-center ml-3 orderCard" >
               <div className="p-1">
                 <h3>Total Product</h3>
                 <div>
@@ -94,7 +94,7 @@ const AdminInfo = () => {
               </div>
             </div>
 
-            <div className="col-3 card text-center ml-3">
+            <div className="col-3 card text-center ml-3 orderCard">
               <div className="p-1">
                 <h3>Total Order</h3>
                 <div>
@@ -108,7 +108,7 @@ const AdminInfo = () => {
               </div>
             </div>
 
-            <div className="col-3 mt-2 card text-center ">
+            <div className="col-3 mt-2 card text-center orderCard ">
             <div className="p-1">
               <h3>Order Pending</h3>
               <div>
@@ -123,7 +123,7 @@ const AdminInfo = () => {
           </div>
 
 
-            <div className="col-3 mt-2 card text-center ml-3">
+            <div className="col-3 mt-2 card text-center ml-3 orderCard">
             <div className="p-1">
               <h3>Order On Going</h3>
               <div>
@@ -141,7 +141,7 @@ const AdminInfo = () => {
 
 
 
-          <div className="col-3 mt-2 card text-center ml-3 ">
+          <div className="col-3 mt-2 card text-center ml-3 orderCard">
           <div className="p-1">
             <h3>Order Done</h3>
             <div>

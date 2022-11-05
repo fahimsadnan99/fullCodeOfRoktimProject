@@ -10,6 +10,8 @@ import Footer from '../Footer/Footer'
 import AdminInfo from "./AdminInfo";
 import UserInfo from "./UserInfo";
 import Order from "./Order";
+import "./Dbord.css"
+import Logo from "../../assets/img/logox.png"
 
 
 
@@ -51,30 +53,31 @@ useEffect(()=>{
     <>
       <Layout title="Admin dashbord">
         <Navbar></Navbar>
-        <div className="row " style={{paddingTop : "100px"}}>
-          <div className="col-md-2">
-            <ul class="list-group">
-              <li class="list-group-item active">Menu</li>
+        <div className="row " style={{paddingTop : "100px",fontFamily : "Patua One",textAlign : "center",}}>
+          <div className="col-md-2 " style={{background: "#720707",borderRadius : "10px"}} >
+          <img src={Logo} alt="logo" style={{width : "100px",textShadow : "2px 5px 10px black"}} />
+            <ul class="" >
+              <li class="" style={{zIndex : "0",backgroundColor : "yellow",color : "black",fontWeight : "bold",padding : "10px", borderRadius : "10px",boxShadow : "2px 2px 10px black"}}>Menu</li>
              
-              <li class="list-group-item">
+              <li class="">
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  class="btn "
                   data-toggle="modal"
                   data-target="#exampleModal"
-                  style={{ width: "150px" }}
+                  style={{ backgroundColor : "white",color : "black",fontWeight : "bold",padding : "10px", borderRadius : "10px",boxShadow : "2px 2px 10px black",width : "100%",marginTop : "10px"}}
                 >
                   Create Catagory
                 </button>
                 <CreateCatagory></CreateCatagory>
               </li>
-              <li class="list-group-item">
+              <li class="">
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  class="btn "
                   data-toggle="modal"
                   data-target="#ProductCreate"
-                  style={{ width: "150px" }}
+                  style={{ backgroundColor : "white",color : "black",fontWeight : "bold",padding : "10px", borderRadius : "10px",boxShadow : "2px 2px 10px black",width : "100%",marginTop : "10px" }}
                 >
                   Create Products
                 </button>
@@ -84,11 +87,11 @@ useEffect(()=>{
 
               {menu?.map((el,index) =>{
                 return (
-                  <li className="list-group-item">
+                  <li className="">
                   <button
                     type="button"
-                    class="btn btn-primary"
-                    style={{ width: "150px" }}
+                    class="btn "
+                    style={{ backgroundColor : "white",color : "black",fontWeight : "bold",padding : "10px", borderRadius : "10px",boxShadow : "2px 2px 10px black", width : "100%",marginTop : "10px" }}
                     onClick={()=> setNumberOfComponents(index)}
                    
                   >
