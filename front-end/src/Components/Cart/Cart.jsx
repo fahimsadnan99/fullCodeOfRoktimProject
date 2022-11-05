@@ -324,7 +324,7 @@ if (e.target.value === "0"){
              
            </table>
           </div>
-          <div className="col-3">
+          <div className="col-3 " >
             <div className="text-center p-3 priceCard">
               <h5> Item : {ItemList.item.length}</h5>
               <h5>Quantity : {price().quantity}</h5>
