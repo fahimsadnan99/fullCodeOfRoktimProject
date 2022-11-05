@@ -61,23 +61,23 @@ const Shop = () => {
            <Layout title="Shop Page">
         <Navbar></Navbar>
           <div className="row m-0" style={{paddingTop : "100px"}}>
-          <div className="col-3 ">
+          <div className="col-3 " style={{backgroundColor : "#D4CDFD", color : "black", fontFamily : "Patua One", fontSize : "18px",borderRadius : "10px"}}>
             <div className="row">
                   <div className="col-12 mt-5">
-                <div className="d-flex">
+                <div className="d-flex my-2">
                   Product:
                   <select
                     className="form-control form-control-sm"
                     style={{ width: "200px", marginLeft: "20px" }}
                     onChange={(e) => setOrder(e.target.value)}
                   >
-                    <option value="desc">High To Low</option>
+                    <option value="desc" >High To Low</option>
                     <option value="aesc">Low to High</option>
                   </select>
                 </div>
               </div>
                   <div className="col-12 ">
-                <div className="d-flex">
+                <div className="d-flex my-2">
                   SortBy:
                   <select
                     className="form-control form-control-sm"
@@ -90,7 +90,7 @@ const Shop = () => {
                 </div>
               </div>
               <div className="col-12">
-                <div className="d-flex">
+                <div className="d-flex my-2">
                   limit :
                   <input
                     type="number"
