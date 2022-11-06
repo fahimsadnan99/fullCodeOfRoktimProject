@@ -8,6 +8,7 @@ import {NavLink} from "react-router-dom"
 import Footer from '../Footer/Footer'
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Logo from "../../assets/img/logox.png"
 
 const Dashbord = () => {
   const [data, setData] = useState()
@@ -44,27 +45,34 @@ const Dashbord = () => {
 
   return (
     <>
+    <div className="user-deshbord">
       <Layout title="user dashbord">
         <Navbar></Navbar>
         <div className="row" style={{paddingTop : "100px"}}>
-          <div className="col-md-3">
-            <ul class="list-group">
-              <li class="list-group-item active">User Link</li>
-              <li class="list-group-item">
+          <div className="col-md-3 userMenu">
+
+
+          <img src={Logo} alt="logo" style={{width : "100px"}} />
+          
+
+
+            <ul class="">
+              <li style={{backgroundColor : "#C0EB36"}}>User Menu</li>
+              <li class="p-0">
                 <NavLink
                   to="/cart"
                   href="#"
                   type="button"
-                  class="btn btn-primary"
+                  class="btn "
                 >
                   My Cart
                 </NavLink>
               </li>
-              <li class="list-group-item">
+              <li class="p-0">
                 <a
                   href="#"
                   type="button"
-                  class="btn btn-primary"
+                  class="btn "
                   data-toggle="modal"
                   data-target="#Profile"
                 >
@@ -73,11 +81,11 @@ const Dashbord = () => {
                 <Profile el={data}></Profile>
               </li>
 
-              <li class="list-group-item">
+              <li class="p-2">
                 <button
                
                   type="button"
-                  class="btn btn-primary"
+                  class="btn "
                   onClick={() => setPurchaseHistory(!PurchaseHistory)}
                 >
                   Purchase History
@@ -110,7 +118,7 @@ const Dashbord = () => {
             {info?.map(el =>{
               return (
                 <>
-                <tr>
+                <tr className="user-order">
               <td>{el.email}</td>
               <td>{
                 el?.item?.map(e =>{
@@ -147,7 +155,7 @@ const Dashbord = () => {
 
             <div className="col-md-9 m-auto">
             <ul class="list-group">
-              <li class="list-group-item active">User Information</li>
+              <li class="list-header">User Information</li>
               <li class="list-group-item">Name : {name} </li>
               <li class="list-group-item">Email : {email}</li>
               <li class="list-group-item">City : {data ? data.city : "N/A"}</li>
@@ -175,6 +183,7 @@ const Dashbord = () => {
         </div>
         <Footer></Footer>
       </Layout>
+      </div>
     </>
   );
 };
