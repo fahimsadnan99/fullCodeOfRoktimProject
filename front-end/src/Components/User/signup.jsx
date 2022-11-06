@@ -50,13 +50,14 @@ const Signup = () => {
   };
 
   return (
+    <div className="sinup-page">
     <Layout title="Signin Page">
       <Navbar></Navbar>
-      <div className="mb-5 container" style={{paddingTop : "100px"}}>
+      <div className=" container" style={{paddingTop : "150px"}}>
         <div className="row">
-          <div className="col-lg-6  col-md-8  col-12 animate__flipInX">
-            <div className=" signup_Wrapper p-3 mb-5">
-              <p className="mb-2 signupText cssanimation lePeek sequence">
+          <div className="col-lg-6  col-md-8  col-12 animate__flipInX offset-3 signinWrapper">
+            <div className=" signup_Wrapper p-3 ">
+              <p className="my-2 signupText cssanimation lePeek sequence">
                 Signup{" "}
               </p>
               <Link to="/signin" className="text-center">
@@ -146,22 +147,19 @@ const Signup = () => {
 
                 <br></br>
                 <div className="text-center">
-                  <button className="custom-btn btn-9 text-center">
+                  <button className="custom-btn  text-center">
                     Sign Up
                   </button>
                 </div>
               </form>
             </div>
           </div>
-          <div className="col-lg-6 col-md-4 col-12 animate__slideInRight">
-            <div className="Signup_img">
-              <img src="./img/signup.gif" alt="signup-img"></img>
-            </div>
-          </div>
+          
         </div>
       </div>
       <Footer></Footer>
     </Layout>
+    </div>
   );
 };
 

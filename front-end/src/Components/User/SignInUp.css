@@ -1,6 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.signin-page {
+    width: 100%;
+    height: 100vh;
+    float: left;
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.611) 0%,rgba(0, 0, 0, 0.693)100%), url("../../assets/img/signup2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Patua One;
+
+}
+
+.sinup-page {
+    width: 100%;
+    height: 100vh;
+    float: left;
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.611) 0%,rgba(0, 0, 0, 0.693)100%), url("../../assets/img/signup3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Patua One;
+}
+
 
 .input_field:focus {
 box-shadow: none !important;
+background-color: inherit;
+color: white;
+border: 1px solid white !important;
  } 
 
 .input_field {
@@ -12,6 +42,8 @@ box-shadow: none !important;
 .signupText {
     font-size: 40px;
     letter-spacing: 3px;
+    color: white;
+    text-align: center;
    
 }
 
@@ -28,4 +60,26 @@ box-shadow: none !important;
 @keyframes lePeek {
     25% {  transform: rotateX(30deg) translateY(10px) rotate(-13deg); }
     50% { transform: translateY(-22px) rotate(3deg) scale(1.1);  }
+}
+
+.signinWrapper {
+    background: rgba(255, 255, 255, 0.1);
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signin-page input , .sinup-page input {
+    background-color: inherit;
+}
+
+.custom-btn {
+    background-color: inherit !important;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    background-color: #C0EB36 !important;
 }

@@ -67,11 +67,14 @@ password.current = watch("password", "");
 };
 
     return (
+      <div className='signin-page'>
       <Layout title="Signin Page">
+     
         <Navbar></Navbar>
-        <div className="container" style={{paddingTop : "100px"}}>
+        
+        <div className="container" style={{paddingTop : "150px"}}>
           <div className="row signupPage">
-            <div className="col-lg-6  col-md-8  col-12 animate__bounceInDown">
+            <div className="col-lg-6  col-md-8  col-12 animate__bounceInDown offset-3 signinWrapper">
               <div className=" signup_Wrapper p-3 my-5">
                 <p className="signupText mb-2 cssanimation lePeek sequence">
                   Signin
@@ -132,7 +135,7 @@ password.current = watch("password", "");
                   <br></br>
                   <div className="text-center">
                     <button
-                      className="custom-btn btn-9 text-center"
+                      className="custom-btn  text-center"
                       disabled={massageShow.disabled}
                       
                     >
@@ -142,15 +145,14 @@ password.current = watch("password", "");
                 </form>
               </div>
             </div>
-            <div className="col-lg-6 col-md-4 col-12 ">
-              <div className="Signup_img animate__flip">
-                <img src="./img/signin.gif" alt="signup-img"></img>
-              </div>
-            </div>
+           
           </div>
         </div>
+        
         <Footer></Footer>
+        
       </Layout>
+      </div>
     );
 }
 
