@@ -49,16 +49,12 @@ const Dashbord = () => {
       <Layout title="user dashbord">
         <Navbar></Navbar>
         <div className="row" style={{paddingTop : "100px"}}>
-          <div className="col-md-3 userMenu">
+          <div className="col-md-3 " style={{backgroundColor : "#720707",borderRadius : "5px" }}>
+ <img src={Logo} alt="img"  style={{width : "100px", marginLeft :  "100px" }} />
 
-
-          <img src={Logo} alt="logo" style={{width : "100px"}} />
-          
-
-
-            <ul class="">
-              <li style={{backgroundColor : "#C0EB36"}}>User Menu</li>
-              <li class="p-0">
+            <ul class="list-group " >
+              <li style={{backgroundColor : "white", marginBottom : "10px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px", padding : "10px"}}>User Link</li>
+              <li style={{backgroundColor : "white", margin : "5px 0px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px"}}>
                 <NavLink
                   to="/cart"
                   href="#"
@@ -68,7 +64,7 @@ const Dashbord = () => {
                   My Cart
                 </NavLink>
               </li>
-              <li class="p-0">
+              <li style={{backgroundColor : "white", margin : "5px 0px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px"}}>
                 <a
                   href="#"
                   type="button"
@@ -81,7 +77,7 @@ const Dashbord = () => {
                 <Profile el={data}></Profile>
               </li>
 
-              <li class="p-2">
+              <li style={{backgroundColor : "white", margin : "5px 0px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px"}}>
                 <button
                
                   type="button"
@@ -118,7 +114,7 @@ const Dashbord = () => {
             {info?.map(el =>{
               return (
                 <>
-                <tr className="user-order">
+                <tr style={{backgroundColor : "#720707",color : "#fff"}}>
               <td>{el.email}</td>
               <td>{
                 el?.item?.map(e =>{
@@ -155,7 +151,8 @@ const Dashbord = () => {
 
             <div className="col-md-9 m-auto">
             <ul class="list-group">
-              <li class="list-header">User Information</li>
+              <li style={{backgroundColor : "#720707", listStyle : "none",
+            fontSize : "20px", color : "#fff", padding : "20px",borderTopRightRadius : "5px",borderTopLeftRadius : "5px"}}>User Information</li>
               <li class="list-group-item">Name : {name} </li>
               <li class="list-group-item">Email : {email}</li>
               <li class="list-group-item">City : {data ? data.city : "N/A"}</li>
