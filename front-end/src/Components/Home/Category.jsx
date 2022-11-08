@@ -15,7 +15,7 @@ const Category = () => {
       contecnt.map(el=>{
         return (
           <div className='col-3  d-inline-block ServiceField p-2'>
-           <i class={el.icon} style={{fontSize : "50px", color : "yellow",padding : "20px 0px",textShadow : "2px 10px 10px black" }} aria-hidden="true"></i>
+           <i class={`${el.icon} iconAnimation`} style={{fontSize : "50px", color : "yellow",padding : "20px 0px",textShadow : "2px 10px 10px black" }} aria-hidden="true"></i>
            <p style={{textShadow : "2px 5px 10px rgba(0,0,0,0.3)"}}>{el.text}</p>
            <p style={{textShadow : "2px 5px 10px rgba(0,0,0,0.3)"}}>{el.number}</p>
           </div>
