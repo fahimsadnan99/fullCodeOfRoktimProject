@@ -18,6 +18,7 @@ const Navbar = () => {
                   src="./img/logo.jpeg"
                   alt="logo"
                   className="img-fluid logo"
+                  style={{width : "100px", borderRadius : "50%"}}
                 ></img>
                 <span className="logoTitle">
                   <div>
