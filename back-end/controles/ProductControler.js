@@ -80,7 +80,7 @@ const filterProducts = async (req, res) => {
   const filters = req.body.filters;
   // {
   //   price: [1000, 2000],
-  //   catagory : ["648fea28ef","feaf5524eaf","feafe4454"]
+  //   catagory : ["648fea28ef","feaf5524eaf","feafe4454"]
   // }
 
   let arg = {};
@@ -111,6 +111,17 @@ const filterProducts = async (req, res) => {
   res.status(200).send(findTargetProduct);
 };
 
+
+
+
+const getProductByBrand = async (req,res)=>{
+  console.log(req.params);
+  const findTargetProduct = await ProductSchema.find(req.params)
+  
+  
+  res.status(200).send(findTargetProduct)
+}
+
 module.exports = {
   getProduct,
   createProduct,
@@ -118,4 +129,5 @@ module.exports = {
   updateProductById,
   filterProducts,
   deleteProduct,
+  getProductByBrand
 };

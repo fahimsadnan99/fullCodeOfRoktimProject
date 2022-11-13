@@ -19,6 +19,7 @@ import Payment from "./Components/PaymentCard/Payment"
 import Card from "./Components/Payment/Card"
 import Bkash from "./Components/Payment/Bkash"
 import Nogod from "./Components/Payment/Nogod"
+import Brand from "./Components/Shop/SingleShop"
 
 
 
@@ -51,6 +52,11 @@ const App = () => {
         <Route exact path="/cart">
           <Cart></Cart>
         </Route>
+        <Route exact path="/brandShop">
+        <Brand></Brand>
+      </Route>
+
+
 <Route exact path="/payment">
           <Payment></Payment>
         </Route>

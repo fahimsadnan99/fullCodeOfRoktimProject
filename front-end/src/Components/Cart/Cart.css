@@ -48,3 +48,28 @@ font-family: Patua One;
 margin-top: 10px;
 color: #fff;
 }
+/* 
+.cartWrapper {
+  background-image: url("../../assets/img/cartBg2.svg");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+  z-index: -15;
+ 
+} */
+
+.marqueeCart {
+  position: absolute;
+  top: 13.5%;
+  left: 0;
+  width: 100%;
+  
+  background-color: red;
+  color: #fff;
+  font-size: 18px;
+  z-index: -10;
+  font-style: italic;
+  font-weight: bold;
+  box-shadow: 2px 5px 10px black;
+}

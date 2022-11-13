@@ -8,7 +8,8 @@ const myState = {
   buyProduct: [],
   checkOutUserData : {},
   number : 0,
-  bOrN : null
+  bOrN : null,
+  brand : null
 
 };
 
@@ -103,6 +104,12 @@ const ItemList = (state = myState, actions) => {
           ...state,
           checkOutUserData : {...actions.value, user : _id, name : name }
         } 
+      break
+      case  "BRAND":
+           return {
+             ...state,
+             brand : actions.value
+           } 
       break
     default:
       return state;

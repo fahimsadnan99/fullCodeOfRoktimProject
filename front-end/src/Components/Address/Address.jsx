@@ -61,7 +61,7 @@ const Address = () => {
       <button className="btn btn-success mt-3 mx-2" onClick={() => history.goBack()}>
         Go Back
       </button>
-      <div className="container text-center">
+      <div className="container text-center" >
         <div className="row">
           <div className="my-5 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 formStyle">
             <h3>Total Ammount = {price() + ItemList.transportFee} TK</h3>
@@ -79,6 +79,7 @@ const Address = () => {
                     },
                   })}
                   placeholder="Enter Your Eamil"
+                  style={{color : "black",border : "1px solid black"}}
                 ></input>
               </div>
               {errors.email && <small style={{ color: "red" }}>{errors.email.message}</small>}
@@ -100,6 +101,7 @@ const Address = () => {
                     },
                   })}
                   placeholder="Enter Your phone"
+                  style={{color : "black",border : "1px solid black"}}
                 ></input>
               </div>
               {errors.phone && <small style={{ color: "red" }}>{errors.phone.message}</small>}
@@ -116,6 +118,7 @@ const Address = () => {
                     },
                   })}
                   placeholder="Enter Your City"
+                  style={{color : "black",border : "1px solid black"}}
                 ></input>
               </div>
               {errors.name && <small style={{ color: "red" }}>{errors.city.message}</small>}
@@ -132,6 +135,7 @@ const Address = () => {
                     },
                   })}
                   placeholder="Enter Your address"
+                  style={{color : "black",border : "1px solid black"}}
                 ></input>
               </div>
               {errors.name && <small style={{ color: "red" }}>{errors.address.message}</small>}
@@ -148,6 +152,7 @@ const Address = () => {
                     },
                   })}
                   placeholder="Enter Your postCode"
+                  style={{color : "black",border : "1px solid black"}}
                 ></input>
               </div>
               {errors.name && <small style={{ color: "red" }}>{errors.postCode.message}</small>}

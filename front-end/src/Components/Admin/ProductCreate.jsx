@@ -4,9 +4,12 @@ import { GetCatagory } from "../../API/AllApi";
 import { PostProduct } from "../../API/AllApi";
 import { successMsg, ErrorMsg, loadingStatus } from "../../utils/message";
 
+const Brand = ["apon","pran","bosundhora"]
+
 const ProductCreate = () => {
   const [catagory, setCatagory] = useState("");
   const [selectCatagry, setSelectCatagry] = useState("0");
+  const [selectBrand, setSelectBrand]= useState();
   const [file, setFile] = useState();
   const [value, setValue] = useState({
     loading: false,
@@ -15,7 +18,7 @@ const ProductCreate = () => {
   });
   const { loading, success, error, disabled } = value;
 
- 
+  
 
   
   const {
@@ -30,6 +33,9 @@ const ProductCreate = () => {
     setSelectCatagry(e.target.value)
   }
 
+  const handleChangeBrand =(e)=>{
+    setSelectBrand(e.target.value)
+  }
  
   const onSubmit = (e) => {
     setValue({ ...value, loading: true });
@@ -47,6 +53,7 @@ const ProductCreate = () => {
       formData.append("quantity", Number(e.quantity));
       formData.append("description", e.description);
       formData.append("catagory", selectCatagry);
+      formData.append("brand", selectBrand);
       formData.append("manufecture", e.manufecture);
       formData.append("weight", e.weight);
       formData.append("expireDate", e.expireDate);
@@ -81,7 +88,7 @@ const ProductCreate = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
+    <div style={{color : "black"}}>
       <div className="row">
         <div className="col-10 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
           <div
@@ -120,6 +127,23 @@ const ProductCreate = () => {
                         ))}
                     </select>
                   </div>
+
+
+                  <div className="d-flex my-2">
+                  <h6 className="pr-3">Brand-</h6>
+
+                  <select class="form-control form-control-sm" onChange={handleChangeBrand}>
+                    <option value="0">Select Brand</option>
+                    {Brand &&
+                      Brand.map((item) => (
+                        <option value={item}>
+                          {item}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+
+
                   <div className="form-group">
                     <input
                       type="file"
@@ -148,6 +172,7 @@ const ProductCreate = () => {
                             message: "Name mustbe 4 carecter",
                           },
                         })}
+                        style={{color : "black", border : "1px solid black"}}
                         placeholder="Product Name"
                       ></input>
                     </div>
@@ -168,6 +193,7 @@ const ProductCreate = () => {
                             message: "Price mustbe 4 carecter",
                           },
                         })}
+                        style={{color : "black", border : "1px solid black"}}
                         placeholder="Enter Product Price"
                       ></input>
                     </div>
@@ -188,6 +214,7 @@ const ProductCreate = () => {
                             message: "quantity mustbe 2 carecter",
                           },
                         })}
+                        style={{color : "black", border : "1px solid black"}}
                         placeholder="Enter Product quantity"
                       ></input>
                     </div>
@@ -209,6 +236,7 @@ const ProductCreate = () => {
                         })}
                         placeholder="Manufectureing Date"
                         autocomplete="off"
+                        style={{color : "black", border : "1px solid black"}}
                       ></input>
                     </div>
                     {errors.manufecture && (
@@ -227,6 +255,7 @@ const ProductCreate = () => {
                         })}
                         placeholder="Expire Date"
                         autocomplete="off"
+                        style={{color : "black", border : "1px solid black"}}
                       ></input>
                     </div>
                     {errors.expireDate && (
@@ -246,6 +275,7 @@ const ProductCreate = () => {
                       })}
                       placeholder="Weight"
                       autocomplete="off"
+                      style={{color : "black", border : "1px solid black"}}
                     ></input>
                   </div>
                   {errors.weight && (
@@ -265,6 +295,7 @@ const ProductCreate = () => {
                             message: "description mustbe 5 carecter",
                           },
                         })}
+                        style={{color : "black", border : "1px solid black"}}
                         placeholder="Enter Product description"
                       ></textarea>
                     </div>

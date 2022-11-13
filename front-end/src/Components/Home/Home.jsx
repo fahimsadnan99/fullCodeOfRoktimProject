@@ -15,6 +15,7 @@ import AllProduct from './AllProduct';
 import Paralax from './Paralax';
 import CustomarQuto from '../About/CustomarQuto';
 import ImgGallary from './ImgGallary';
+import Brand from './Brand';
 
 
 
@@ -37,6 +38,11 @@ console.log(product);
           <Banner></Banner>
           
           <Category></Category>
+          <div className='container'>
+          <BestSale title="Brands"></BestSale>
+          <Brand></Brand>
+          </div>
+          
           <BestSale title="Best Sale"></BestSale>
           <div className="container my-5">
             

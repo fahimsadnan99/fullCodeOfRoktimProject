@@ -7,7 +7,8 @@ const {
   getProductById,
   updateProductById,
   filterProducts,
-  deleteProduct
+  deleteProduct,
+  getProductByBrand
 } = require("../controles/ProductControler");
 const upload = require("../middlewares/multer")
 
@@ -26,4 +27,8 @@ Routers.route("/:id")
 
 Routers.route("/filter")
 .post(filterProducts)
+
+
+Routers.route("/brand/:brand")
+ .get(getProductByBrand)
 module.exports = Routers

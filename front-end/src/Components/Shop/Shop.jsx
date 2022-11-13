@@ -5,6 +5,7 @@ import Card from '../Home/Card';
 import CheckBox from './CheckBox';
 import Loader from "../Loader"
 import Footer from '../Footer/Footer'
+import { useHistory } from 'react-router-dom';
 import {
   getProduct,
   getProductDetails,
@@ -25,6 +26,13 @@ const Shop = () => {
      catagory: [],
      price: [],
    });
+
+   const history = useHistory()
+
+   if(history.action == "PUSH"){
+    console.log("history", history.location.state.value);
+   }
+ 
  
   
   const handleFilter = (myFilter, filterBy) => {
@@ -45,6 +53,8 @@ const Shop = () => {
          .then((response) => setCatagorys(response.data))
          .catch((err) => console.log(err));
    }, []);
+
+   
   
   useEffect(() => {
      getProduct(sortBy, order, limit)

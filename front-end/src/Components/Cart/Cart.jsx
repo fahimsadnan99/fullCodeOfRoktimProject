@@ -237,18 +237,25 @@ if (e.target.value === "0"){
  
 
   return (
+    <div className="cartWrapper">
     <Layout title="Cart Page">
       <Navbar></Navbar>
-      <button  style={{paddingTop : "100px"}} className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
-      <div className="container" >
+      <div className="marqueeCart">
+      <marquee >
+      SA poribohon Support Mximum 20KG || Home Delivery Support Mximum 500KG || Truck & SA poribohon Support minimum 1000Kg
+         </marquee>
+         </div>
+      <button  style={{paddingTop : "100px",zIndex : "9999"}} className='btn btn-success mt-3 mx-2' onClick={()=> history.goBack()}>Go Back</button>
+      <div className="container" style={{fontFamily: "Patua One"}}>
         <h2
           className="text-center mb-5 "
           style={{
             borderBottom: "2px solid black",
             width: "300px",
-            margin: "0 auto",
+            marginLeft : "300px",
             color: "black",
             fontWeight: "bold",
+            
             
           }}
         >
@@ -257,7 +264,7 @@ if (e.target.value === "0"){
         <div className="row">
           <div className="col-9">
            <table className="table">
-              <tr>
+              <tr style={{backgroundColor : "#720707",color : "#fff"}}>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
@@ -378,6 +385,7 @@ if (e.target.value === "0"){
       </div>
       <Footer></Footer>
     </Layout>
+    </div>
   );
 };
 

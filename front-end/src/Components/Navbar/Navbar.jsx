@@ -14,16 +14,11 @@ const Navbar = () => {
             
 
                <Link className="navbar-brand d-flex" exact to="/">
-                <img
-                  src="./img/logo.jpeg"
-                  alt="logo"
-                  className="img-fluid logo"
-                  style={{width : "100px", borderRadius : "50%"}}
-                ></img>
+               
                 <span className="logoTitle">
                   <div>
-                    <p>Apon</p>
-                    <p>Basic Need Food Ltd</p>
+                    <p>Wholesale Bazar</p>
+                    
                   </div>
                 </span>
               </Link> 

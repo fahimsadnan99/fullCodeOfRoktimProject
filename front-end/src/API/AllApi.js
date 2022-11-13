@@ -101,3 +101,5 @@ export const updateProfile = (form) => {
 export const deleteProduct =  (id) => {
   return axios.delete(`${API}/product/${id}`)
 };
+
+

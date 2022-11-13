@@ -39,6 +39,10 @@ const ProductSchema = mongoose.Schema(
     description: {
       type: String,
     },
+    brand : {
+      type : String,
+      required : true
+    }
   },
   { timestamps: true }
 );

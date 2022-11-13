@@ -53,7 +53,7 @@ const Dashbord = () => {
  <img src={Logo} alt="img"  style={{width : "100px", marginLeft :  "100px" }} />
 
             <ul class="list-group " >
-              <li style={{backgroundColor : "white", marginBottom : "10px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px", padding : "10px"}}>User Link</li>
+              <li style={{backgroundColor : "yellow", marginBottom : "10px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "18px", padding : "10px"}}>User Link</li>
               <li style={{backgroundColor : "white", margin : "5px 0px", borderRadius : "5px",textAlign : "center", fontWeight : "bold", fontSize : "20px"}}>
                 <NavLink
                   to="/cart"
